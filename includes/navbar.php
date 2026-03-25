@@ -138,8 +138,8 @@ $categoryIcons = [
                 <a href="<?php echo $base_url; ?>pages/wishlist.php">
                     <i class="fa-regular fa-heart"></i>
                 </a>
-                <a href="<?php echo $base_url; ?>pages/compare.php">
-                    <i class="fa-solid fa-arrows-rotate"></i>
+                <a href="<?php echo $base_url; ?>pages/account.php">
+                    <i class="fa-solid fa-user"></i>
                 </a>
                 <a href="<?php echo $base_url; ?>pages/cart.php" class="cart-icon">
                     <i class="fa-solid fa-cart-shopping"></i>
