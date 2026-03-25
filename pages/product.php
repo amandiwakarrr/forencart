@@ -12,11 +12,15 @@ $product_id = (int) $_GET['id'];
 
 /* FETCH PRODUCT */
 $productQuery = mysqli_query($conn, "
-    SELECT products.*, categories.name AS category_name, categories.id AS category_id
-    FROM products
-    LEFT JOIN categories ON products.category_id = categories.id
-    WHERE products.id = $product_id
-    LIMIT 1
+SELECT p.*, c.name AS category_name, c.id AS category_id, o.type, o.value
+FROM products p
+LEFT JOIN categories c ON p.category_id = c.id
+LEFT JOIN offer_products op ON p.id = op.product_id
+LEFT JOIN offers o ON op.offer_id = o.id
+    AND o.status = 1
+    AND NOW() BETWEEN o.start_date AND o.end_date
+WHERE p.id = $product_id
+LIMIT 1
 ");
 
 if (mysqli_num_rows($productQuery) === 0) {
@@ -24,6 +28,18 @@ if (mysqli_num_rows($productQuery) === 0) {
 }
 
 $product = mysqli_fetch_assoc($productQuery);
+
+$price = $product['price'];
+$finalPrice = $price;
+
+if (!empty($product['type'])) {
+    if ($product['type'] == 'percentage') {
+        $finalPrice = $price - ($price * $product['value'] / 100);
+    } else {
+        $finalPrice = $price - $product['value'];
+    }
+}
+
 
 /* FETCH RELATED PRODUCTS */
 $relatedProducts = mysqli_query($conn, "
@@ -54,8 +70,9 @@ $relatedProducts = mysqli_query($conn, "
     <div class="product-gallery">
 
         <!-- Discount Badge -->
-        <div class="discount-badge">-20%</div>
-
+        <?php if (!empty($product['type']) && $product['type'] == 'percentage') { ?>
+            <div class="discount-badge">-<?php echo $product['value']; ?>%</div>
+        <?php } ?>
         <div class="main-image">
             <img id="mainProductImage"
                 src="<?php echo $base_url; ?>assets/images/products/<?php echo $product['image']; ?>"
@@ -85,8 +102,11 @@ $relatedProducts = mysqli_query($conn, "
         </div>
 
         <div class="price">
-            ₹<?php echo number_format($product['price'],2); ?>
-            <span class="old-price">₹999</span>
+            ₹<?php echo number_format($finalPrice,2); ?>
+
+            <?php if (!empty($product['type'])) { ?>
+                <span class="old-price">₹<?php echo number_format($price,2); ?></span>
+            <?php } ?>
         </div>
 
         <!-- Stock Badge -->

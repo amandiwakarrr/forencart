@@ -28,16 +28,50 @@ $cart = $_SESSION['cart'] ?? [];
 $grandTotal = 0;
 
 foreach ($cart as $pid => $qty) {
-    $res = mysqli_query($conn, "SELECT name, price, image FROM products WHERE id=$pid");
+
+    $res = mysqli_query($conn, "
+    SELECT p.name, p.price, p.image, o.type, o.value
+    FROM products p
+    LEFT JOIN offer_products op ON p.id = op.product_id
+    LEFT JOIN offers o ON op.offer_id = o.id
+        AND o.status = 1
+        AND NOW() BETWEEN o.start_date AND o.end_date
+    WHERE p.id = $pid
+    ");
+
     if ($p = mysqli_fetch_assoc($res)) {
-        $total = $p['price'] * $qty;
+
+        // Apply offer logic
+        $price = $p['price'];
+
+        if (!empty($p['type'])) {
+            if ($p['type'] == 'percentage') {
+                $price = $price - ($price * $p['value'] / 100);
+            } else {
+                $price = $price - $p['value'];
+            }
+        }
+
+        $total = $price * $qty;
         $grandTotal += $total;
 ?>
 <tr>
     <td><?php echo htmlspecialchars($p['name']); ?></td>
-    <td>₹<?php echo $p['price']; ?></td>
+
+    <td>
+        ₹<?php echo number_format($price, 2); ?>
+        <?php if (!empty($p['type'])) { ?>
+            <br>
+            <small style="text-decoration: line-through; color: gray;">
+                ₹<?php echo number_format($p['price'], 2); ?>
+            </small>
+        <?php } ?>
+    </td>
+
     <td><?php echo $qty; ?></td>
-    <td>₹<?php echo $total; ?></td>
+
+    <td>₹<?php echo number_format($total, 2); ?></td>
+
     <td>
         <a href="remove-from-cart.php?id=<?php echo $pid; ?>">❌</a>
     </td>
@@ -46,10 +80,11 @@ foreach ($cart as $pid => $qty) {
 
 <tr>
     <td colspan="3"><strong>Grand Total</strong></td>
-    <td colspan="2"><strong>₹<?php echo $grandTotal; ?></strong></td>
+    <td colspan="2"><strong>₹<?php echo number_format($grandTotal, 2); ?></strong></td>
 </tr>
 
 </table>
+
 <?php if (!empty($cart)) { ?>
     <div class="cart-actions">
         <a href="<?php echo $base_url; ?>pages/checkout.php" class="checkout-btn">

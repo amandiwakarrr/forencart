@@ -66,7 +66,7 @@ $categoryIcons = [
                 </div>
                 <div class="contact-text">
                     <span class="label">
-                        Call Us Now: <span class="highlight">+123-456-789</span>
+                        Call Us Now: <span class="highlight">+91 8630750297</span>
                     </span>
                     <span class="email">Email: contact@forencart.com</span>
                 </div>
@@ -81,7 +81,7 @@ $categoryIcons = [
 
             <!-- ===== ALL DEPARTMENTS ===== -->
             <div class="all-departments">
-                <i class="fa-solid fa-bars"></i> ALL DEPARTMENTS
+                <i class="fa-solid fa-bars"></i> EXPLORE PRODUCTS
 
                 <div class="departments-dropdown">
                     <?php
@@ -128,7 +128,7 @@ $categoryIcons = [
                 <li><a href="<?php echo $base_url; ?>pages/shop.php">SHOP</a></li>
                 <li><a href="<?php echo $base_url; ?>pages/shop.php">NEW ARRIVALS</a></li>
                 <li><a href="<?php echo $base_url; ?>pages/shop.php">BEST SELLERS</a></li>
-                <li><a href="<?php echo $base_url; ?>pages/shop.php">OFFERS</a></li>
+                <li><a href="<?php echo $base_url; ?>pages/offers.php">OFFERS</a></li>
                 <li><a href="<?php echo $base_url; ?>pages/blog.php">BLOG</a></li>
                 <li><a href="<?php echo $base_url; ?>pages/contact.php">CONTACT</a></li>
             </ul>
