@@ -97,20 +97,25 @@ $relatedProducts = mysqli_query($conn, "
             Get it by <strong>3–5 days</strong>
         </div>
 
-        <div class="quantity">
-            <button onclick="changeQty(-1)">−</button>
-            <input type="number" id="qty" value="1" min="1">
-            <button onclick="changeQty(1)">+</button>
-        </div>
-
         <div class="buttons">
-            <a href="<?php echo $base_url; ?>pages/add-to-cart.php?id=<?php echo $product['id']; ?>"
-                class="btn-cart">Add to Cart</a>
+        <form action="<?php echo $base_url; ?>pages/add-to-cart.php" method="POST">
+        
+            <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
 
-            <a href="javascript:void(0)"
-                onclick="addToWishlist(<?php echo $product['id']; ?>)"
-                class="btn-wishlist">Wishlist</a>
-        </div>
+            <div class="quantity">
+                <button type="button" onclick="changeQty(-1)">−</button>
+                <input type="number" name="qty" id="qty" value="1" min="1">
+                <button type="button" onclick="changeQty(1)">+</button>
+            </div>
+
+            <button type="submit" class="btn-cart">Add to Cart</button>
+        </form>
+
+        <a href="javascript:void(0)"
+            onclick="addToWishlist(<?php echo $product['id']; ?>)"
+        class="btn-wishlist">Wishlist</a>
+
+    </div>
 
         <p class="description">
             <?php echo nl2br(htmlspecialchars($product['description'])); ?>

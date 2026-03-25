@@ -92,7 +92,8 @@
 .checkout-btn {
     display: block;
     width: 100%;
-    background: black;
+    background: var(--primary-color);
+    border-radius: 20px;
     color: white;
     text-align: center;
     padding: 12px;
