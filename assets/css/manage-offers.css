@@ -1,0 +1,129 @@
+.product-list {
+    font-size: 13px;
+    color: #374151;
+}
+
+.product-list div {
+    margin-bottom: 3px;
+}
+
+/* Buttons */
+.btn {
+    padding: 5px 8px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 12px;
+    margin-right: 5px;
+    color: white;
+}
+
+.edit {
+    background: #3b82f6;
+}
+
+.delete {
+    background: #ef4444;
+}
+
+.toggle {
+    background: #10b981;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+/* Status */
+.status {
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.status.active {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status.inactive {
+    background: #fee2e2;
+    color: #991b1b;
+}
+/* Edit offers */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f9;
+}
+
+/* Container */
+.form-container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* Heading */
+.form-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Labels */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+/* Inputs */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.form-control:focus {
+    border-color: #3b82f6;
+    outline: none;
+}
+
+/* Button */
+.btn-submit {
+    width: 100%;
+    padding: 10px;
+    background: #111827;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background: #1f2937;
+}
+
+.btn-add {
+    background: #10b981;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.btn-add:hover {
+    background: #059669;
+}

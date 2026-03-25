@@ -1,0 +1,85 @@
+/* Page Layout */
+.admin-content {
+    padding: 20px;
+}
+
+/* Form Card */
+.form-container {
+    max-width: 500px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Heading */
+.form-container h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #111827;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 18px;
+}
+
+/* Labels */
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+}
+
+/* Inputs + Select */
+.form-control {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.2s;
+    background: #f9fafb;
+}
+
+.form-control:focus {
+    border-color: #2563eb;
+    background: #fff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+/* Button */
+.btn-submit {
+    width: 100%;
+    padding: 11px;
+    background: #111827;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background: #1f2937;
+}
+
+/* Optional: back button */
+.btn-back {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn-back:hover {
+    text-decoration: underline;
+}

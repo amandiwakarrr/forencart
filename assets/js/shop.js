@@ -32,6 +32,10 @@ document.addEventListener("DOMContentLoaded", function () {
     categoryLinks.forEach(link => {
         link.addEventListener("click", function (e) {
             e.preventDefault();
+
+            categoryLinks.forEach(l => l.classList.remove("active"));
+            this.classList.add("active");
+
             currentCategory = this.dataset.category;
             loadProducts();
         });
@@ -40,22 +44,13 @@ document.addEventListener("DOMContentLoaded", function () {
     /* PRICE FILTER */
     priceForm.addEventListener("submit", function (e) {
         e.preventDefault();
+
         minPrice = document.getElementById("minPrice").value;
         maxPrice = document.getElementById("maxPrice").value;
+
         loadProducts();
     });
 
     /* INITIAL LOAD */
     loadProducts();
 });
-
-
-const categoryLinks = document.querySelectorAll("#categoryList a");
-
-categoryLinks.forEach(link => {
-    link.addEventListener("click", () => {
-        categoryLinks.forEach(l => l.classList.remove("active"));
-        link.classList.add("active");
-    });
-});
-

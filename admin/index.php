@@ -40,6 +40,12 @@ require_once __DIR__ . "/includes/admin-header.php";
             <a href="<?php echo $base_url; ?>admin/orders.php">Manage</a>
         </div>
 
+        <div class="dash-card">
+            <h3>Offers</h3>
+            <p>Track customer Offers</p>
+            <a href="<?php echo $base_url; ?>admin/manage-offers.php">Manage</a>
+        </div>
+
     </div>
 
 </main>
