@@ -6,7 +6,7 @@
 
 /* Sidebar */
 .account-sidebar {
-    width: 250px;
+    width: 231px;
     background: #111827;
     color: #fff;
     padding: 30px;
@@ -69,4 +69,8 @@
     text-decoration: none;
     color: #2563eb;
     font-weight: 600;
+}
+.account-sidebar ul li a{
+    color: #fff;
+    text-decoration: none;
 }

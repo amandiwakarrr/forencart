@@ -24,11 +24,11 @@ $userEmail = isset($_SESSION['user_email'])
         <h3>My Account</h3>
         <ul>
             <li class="active">Dashboard</li>
-            <li>My Orders</li>
-            <li>Wishlist</li>
+            <li><a href="<?php echo $base_url; ?>pages/orders.php">My Orders</a></li>
+            <li><a href="<?php echo $base_url; ?>pages/wishlist.php">Wishlist</a></li>
             <li>Settings</li>
             <li>
-                <a href="logout.php" class="logout">Logout</a>
+                <a href="<?php echo $base_url; ?>auth/logout.php" class="logout">Logout</a>
             </li>
         </ul>
     </aside>
