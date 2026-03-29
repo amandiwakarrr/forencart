@@ -1,12 +1,27 @@
 <?php
-require_once '../includes/header.php';
+session_start();
+require_once '../includes/db.php';
 
-$user_id = $_SESSION['user_id'];
-$product_id = (int)$_POST['product_id'];
+if (!isset($_SESSION['user_id'])) {
+    echo "Please login first!";
+    exit;
+}
 
-mysqli_query($conn, "
-    DELETE FROM wishlist 
-    WHERE user_id=$user_id AND product_id=$product_id
-");
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-echo "Removed from wishlist";
+    $user_id = $_SESSION['user_id'];
+    $product_id = intval($_POST['product_id']);
+
+    // ✅ Secure query (prepared statement)
+    $stmt = $conn->prepare("DELETE FROM wishlist WHERE user_id = ? AND product_id = ?");
+    $stmt->bind_param("ii", $user_id, $product_id);
+
+    if ($stmt->execute()) {
+        echo "Removed from wishlist!";
+    } else {
+        echo "Error removing item!";
+    }
+
+    $stmt->close();
+}
+?>

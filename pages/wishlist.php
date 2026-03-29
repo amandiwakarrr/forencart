@@ -42,7 +42,7 @@ $items = mysqli_query($conn, "
                         View
                     </a>
 
-                    <button onclick="removeFromWishlist(<?php echo $p['id']; ?>)" class="btn-danger">
+                    <button onclick="removeFromWishlist(<?php echo $p['id']; ?>, this)" class="btn-danger">
                         Remove
                     </button>
                 </div>
