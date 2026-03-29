@@ -127,32 +127,44 @@
 }
 
 /* Quantity */
-.quantity {
-    display: flex;
+/* Quantity Control FIXED */
+.quantity-control {
+    display: inline-flex;
     align-items: center;
     border: 1px solid #ddd;
-    width: fit-content;
+    border-radius: 5px;
+    overflow: hidden;
     margin-bottom: 15px;
 }
 
-.quantity button {
+/* Buttons (+ / -) */
+.qty-btn {
     background: none;
     border: none;
     padding: 8px 14px;
     cursor: pointer;
+    font-size: 16px;
 }
 
-.quantity input {
+/* Hover */
+.qty-btn:hover {
+    background: #f0f0f0;
+}
+
+/* Input */
+.qty-input {
     width: 45px;
     text-align: center;
     border: none;
+    outline: none;
+    font-size: 14px;
 }
-
 /* Buttons */
-.buttons {
+    .buttons {
     display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
+    align-items: center;   /* 🔥 aligns everything vertically */
+    gap: 12px;
+    margin-top: 15px;
 }
 
 .btn-cart {
@@ -168,15 +180,40 @@
     background: #f7ca00;
 }
 
+/* Wishlist Button */
 .btn-wishlist {
-    background: #fff;
-    border: 1px solid #ddd;
-    padding: 10px 20px;
-    border-radius: 20px;
+    background: linear-gradient(135deg, #ff4d6d, #ff758f);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 25px;
     text-decoration: none;
-    color: #111;
+    font-weight: 500;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
+/* Hover Effect */
+.btn-wishlist:hover {
+    background: linear-gradient(135deg, #e8435f, #ff5c7a);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 77, 109, 0.4);
+}
+
+/* Click Effect */
+.btn-wishlist:active {
+    transform: scale(0.95);
+}
+
+/* Optional: Heart Icon */
+.btn-wishlist::before {
+    content: "❤";
+    font-size: 14px;
+}
 .description {
     font-size: 14px;
     color: #444;

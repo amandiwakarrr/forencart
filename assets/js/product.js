@@ -13,14 +13,42 @@ function changeImage(element) {
 
 
 // Quantity Increase / Decrease
-function changeQty(value) {
-    const qtyInput = document.getElementById("qty");
-    let current = parseInt(qtyInput.value);
+document.addEventListener("DOMContentLoaded", function () {
 
-    if (current + value >= 1) {
-        qtyInput.value = current + value;
-    }
-}
+    // Select all quantity controls
+    const qtyControls = document.querySelectorAll(".quantity-control");
+
+    qtyControls.forEach(control => {
+
+        const input = control.querySelector(".qty-input");
+        const plusBtn = control.querySelector(".plus");
+        const minusBtn = control.querySelector(".minus");
+
+        // Increase quantity
+        plusBtn.addEventListener("click", () => {
+            let current = parseInt(input.value) || 1;
+            input.value = current + 1;
+        });
+
+        // Decrease quantity
+        minusBtn.addEventListener("click", () => {
+            let current = parseInt(input.value) || 1;
+
+            if (current > 1) {
+                input.value = current - 1;
+            }
+        });
+
+        // Manual input validation
+        input.addEventListener("input", () => {
+            if (input.value < 1 || isNaN(input.value)) {
+                input.value = 1;
+            }
+        });
+
+    });
+
+});
 
 
 // Simple star rating selection (for review form)
