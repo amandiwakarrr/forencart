@@ -20,7 +20,7 @@ $userEmail = isset($_SESSION['user_email'])
 <div class="account-container">
 
     <!-- SIDEBAR -->
-    <aside class="account-sidebar">
+    <!-- <aside class="account-sidebar">
         <h3>My Account</h3>
         <ul>
             <li class="active">Dashboard</li>
@@ -31,7 +31,7 @@ $userEmail = isset($_SESSION['user_email'])
                 <a href="<?php echo $base_url; ?>auth/logout.php" class="logout">Logout</a>
             </li>
         </ul>
-    </aside>
+    </aside> -->
 
     <!-- MAIN CONTENT -->
     <section class="account-content">
