@@ -97,6 +97,7 @@
     font-size: 14px;
     color: #f5a623;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .price {
