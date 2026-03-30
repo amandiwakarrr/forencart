@@ -168,7 +168,7 @@
 }
 
 .btn-cart {
-    background: #ffd814;
+    background: linear-gradient(135deg, #ff6a00, #ff8c42);
     padding: 10px 20px;
     border-radius: 20px;
     text-decoration: none;
@@ -176,9 +176,9 @@
     font-weight: 500;
 }
 
-.btn-cart:hover {
+/* .btn-cart:hover {
     background: #f7ca00;
-}
+} */
 
 /* Wishlist Button */
 .btn-wishlist {
@@ -195,14 +195,15 @@
     gap: 6px;
     cursor: pointer;
     transition: all 0.3s ease;
+    margin-bottom: 12px;
 }
 
 /* Hover Effect */
-.btn-wishlist:hover {
+/* .btn-wishlist:hover {
     background: linear-gradient(135deg, #e8435f, #ff5c7a);
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(255, 77, 109, 0.4);
-}
+} */
 
 /* Click Effect */
 .btn-wishlist:active {
@@ -294,45 +295,145 @@
    RELATED PRODUCTS
 =================================*/
 
+/* ===============================
+   RELATED SECTION
+================================ */
 .related-products {
     max-width: 1100px;
     margin: 60px auto 0;
+    padding: 0 10px;
 }
 
 .related-products h2 {
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 20px;
+    font-weight: 600;
 }
 
+
+/* ===============================
+   GRID LAYOUT
+================================ */
 .related-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
 }
 
+
+/* ===============================
+   CARD DESIGN (UPGRADED)
+================================ */
 .related-card {
     background: #fff;
-    padding: 12px;
-    border-radius: 6px;
-    text-align: center;
-    transition: 0.2s ease;
+    padding: 14px;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 260px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
 }
 
+.related-card:hover {
+    transform: translateY(-4px);
+}
+
+
+/* ===============================
+   IMAGE
+================================ */
 .related-card img {
     width: 100%;
-    height: 110px;
+    height: 140px;
     object-fit: contain;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
+
+/* ===============================
+   TEXT CONTENT
+================================ */
 .related-card h4 {
-    font-size: 13px;
-    margin-bottom: 4px;
+    font-size: 14px;
+    min-height: 20px;
+    margin: 0;
+    color: #333;
 }
 
 .related-card p {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
+    color: #ff6a00;
+    margin-top: 6px;
+    line-height: 2;
+}
+
+
+/* ===============================
+   LINK RESET
+================================ */
+.related-card a {
+    text-decoration: none;
+    color: inherit;
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+
+/* ===============================
+   BUTTON SECTION
+================================ */
+.product-actions {
+    margin-top: auto; /* 🔥 pushes buttons to bottom */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+/* WISHLIST BUTTON */
+.product-actions a:first-child {
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: #fff0f0;
+    color: #e60023;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid #ffd6d6;
+    transition: 0.3s;
+}
+
+.product-actions a:first-child:hover {
+    background: #e60023;
+    color: #fff;
+}
+
+
+/* VIEW PRODUCT BUTTON */
+.view-btn {
+    display: block;
+    text-align: center;
+    padding: 9px;
+    background: linear-gradient(135deg, #ff6a00, #ff8c42);
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.view-btn:hover {
+    box-shadow: 0 6px 15px rgba(255,106,0,0.3);
 }
 
 /* ===============================

@@ -178,6 +178,12 @@ $relatedProducts = mysqli_query($conn, "
                     <h4><?php echo htmlspecialchars($rel['name']); ?></h4>
                     <p>₹<?php echo number_format($rel['price'], 2); ?></p>
                 </a>
+                <div class="product-actions">
+
+                    <a href="javascript:void(0)"
+                        onclick="addToWishlist(<?php echo $product['id']; ?>)"
+                    class="btn-wishlist">Wishlist</a>
+                </div>
             </div>
         <?php } ?>
     </div>
@@ -185,6 +191,7 @@ $relatedProducts = mysqli_query($conn, "
 <?php } ?>
 
 <script src="<?php echo $base_url; ?>assets/js/product.js"></script>
+<script src="<?php echo $base_url; ?>assets/js/wishlist.js"></script>
 
 </main>
 

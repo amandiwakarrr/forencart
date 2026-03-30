@@ -99,13 +99,13 @@ while ($p = mysqli_fetch_assoc($query)) {
             </p>
             <div class="product-actions">
 
-    <a href="javascript:void(0)" onclick="addToWishlist(<?php echo $p['id']; ?>)">
-        ❤️ Add to Wishlist
-    </a>
+                <a href="javascript:void(0)" onclick="addToWishlist(<?php echo $p['id']; ?>)">
+                    ❤️ Add to Wishlist
+                </a>
 
-    <a href="<?php echo $base_url; ?>pages/product.php?id=<?php echo $p['id']; ?>" class="view-btn" > View Product </a>
+                <a href="<?php echo $base_url; ?>pages/product.php?id=<?php echo $p['id']; ?>" class="view-btn" > View Product </a>
 
-</div>
+            </div>
         </div>
 
     </div>
