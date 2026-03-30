@@ -129,6 +129,7 @@
     }
 
     .product-card {
+        width: 250px;
         min-height: 320px;
     }
 

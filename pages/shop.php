@@ -30,35 +30,35 @@ $categories = mysqli_query(
         <!-- 🔹 STICKY TOP FILTER BAR -->
         <div class="shop-filter-top">
 
-    <h3 class="filter-heading">Filters</h3>
+            <h3 class="filter-heading">Filters</h3>
 
-    <!-- Categories -->
-    <div class="filter-box">
-        <h4>Categories</h4>
-        <ul id="categoryList">
-            <li><a href="#" data-category="" class="active">All</a></li>
+            <!-- Categories -->
+            <div class="filter-box">
+                <h4>Categories</h4>
+                <ul id="categoryList">
+                    <li><a href="#" data-category="" class="active">All</a></li>
 
-            <?php while ($cat = mysqli_fetch_assoc($categories)) { ?>
-                <li>
-                    <a href="#" data-category="<?php echo $cat['slug']; ?>">
-                        <?php echo htmlspecialchars($cat['name']); ?>
-                    </a>
-                </li>
-            <?php } ?>
-        </ul>
-    </div>
+                    <?php while ($cat = mysqli_fetch_assoc($categories)) { ?>
+                        <li>
+                            <a href="#" data-category="<?php echo $cat['slug']; ?>">
+                                <?php echo htmlspecialchars($cat['name']); ?>
+                            </a>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </div>
 
-    <!-- Price Filter -->
-    <div class="filter-box">
-        <h4>Price Range</h4>
-        <form id="priceFilter" class="filter-price">
-            <input type="number" id="minPrice" placeholder="Min ₹">
-            <input type="number" id="maxPrice" placeholder="Max ₹">
-            <button type="submit">Apply Filter</button>
-        </form>
-    </div>
+            <!-- Price Filter -->
+            <div class="filter-box">
+                <h4>Price Range</h4>
+                <form id="priceFilter" class="filter-price">
+                    <input type="number" id="minPrice" placeholder="Min ₹">
+                    <input type="number" id="maxPrice" placeholder="Max ₹">
+                    <button type="submit">Apply Filter</button>
+                </form>
+            </div>
 
-</div>
+        </div>
 
         <!-- PRODUCTS -->
         <section class="shop-products" id="shopProducts">

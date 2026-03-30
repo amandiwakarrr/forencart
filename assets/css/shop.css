@@ -310,3 +310,50 @@
     color: #555;
 }
 
+@media (max-width: 425px) {
+
+    /* Hide everything */
+    .filter-heading {
+        display: none;
+    }
+
+    .filter-box:first-child {
+        display: none; /* Categories */
+    }
+
+    /* Show only price filter */
+    .filter-box:last-child {
+        display: block;
+    }
+
+    /* Make price filter clean */
+    .filter-price {
+        display: flex;
+        gap: 8px;
+    }
+
+    .filter-price input {
+        flex: 1;
+        height: 35px;
+        width: 70px;
+    }
+
+    .filter-price button {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 320px) {
+
+    /* Stack price inputs */
+    .filter-price {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .filter-price input,
+    .filter-price button {
+        height: 30px;
+        width: 100%;
+    }
+}
