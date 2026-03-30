@@ -353,7 +353,7 @@
         padding: 0 ;
     }
     .nav-links li {
-        padding: 0 5px;
+        padding: 0 10px;
     }
     .nav-icons a {
     margin-left: 20px;
@@ -366,6 +366,9 @@
     }
     .nav-icons {
      margin-left: 10px;
+    }
+    .cart-icon .count{
+        right: 0;
     }
 }
 
