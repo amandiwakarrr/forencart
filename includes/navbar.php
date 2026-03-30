@@ -9,8 +9,8 @@ $categoryIcons = [
     'women'         => 'fa-person-dress',
     'home-kitchen'  => 'fa-kitchen-set',
     'books'         => 'fa-book',
-    'beauty'        => 'fa-spa',
-    'sports'        => 'fa-dumbbell',
+    'beauty'        => 'fa-brush',
+    'sports'        => 'fa-table-tennis',
     'toys'          => 'fa-puzzle-piece'
 ];
 ?>
