@@ -21,10 +21,10 @@
 }
 
 .blog-card {
-    background: #fff;
+    background: #ccddef;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+    box-shadow: 0 6px 15px rgba(243, 137, 87, 0.06);
 }
 
 .blog-card h3 {

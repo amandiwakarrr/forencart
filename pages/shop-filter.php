@@ -76,8 +76,11 @@ if (!$query || mysqli_num_rows($query) === 0) {
 }
 
 /* OUTPUT PRODUCTS */
+
 while ($p = mysqli_fetch_assoc($query)) {
 ?>
+<link rel="stylesheet" href="<?php echo $base_url; ?>/assets/css/shop-ajax-products.css">
+
     <div class="product-card">
 
         <a href="<?php echo $base_url; ?>pages/product.php?id=<?php echo $p['id']; ?>">
@@ -87,24 +90,22 @@ while ($p = mysqli_fetch_assoc($query)) {
             >
         </a>
 
-        <div class="product-info">
+        <div class="product-info"">
        
             <h4><?php echo htmlspecialchars($p['name']); ?></h4>
 
             <p class="price">
                 ₹<?php echo number_format($p['price'], 2); ?>
             </p>
-            <a style="text-decoration:none;" href="javascript:void(0)"
-            onclick="addToWishlist(<?php echo $p['id']; ?>)">
-            ❤️ Add to Wishlist
-            </a>
+            <div class="product-actions">
 
-            <a 
-                href="<?php echo $base_url; ?>pages/product.php?id=<?php echo $p['id']; ?>" 
-                class="view-btn"
-            >
-                View Product
-            </a>
+    <a href="javascript:void(0)" onclick="addToWishlist(<?php echo $p['id']; ?>)">
+        ❤️ Add to Wishlist
+    </a>
+
+    <a href="<?php echo $base_url; ?>pages/product.php?id=<?php echo $p['id']; ?>" class="view-btn" > View Product </a>
+
+</div>
         </div>
 
     </div>
