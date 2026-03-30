@@ -21,15 +21,11 @@
 }
 
 .why-card {
-    background: #f9fafb;
+    background: #ccddef;
     padding: 30px 20px;
     border-radius: 14px;
     text-align: center;
     transition: transform 0.3s;
-}
-
-.why-card:hover {
-    transform: translateY(-6px);
 }
 
 .why-card i {

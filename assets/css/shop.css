@@ -3,6 +3,7 @@
 ================================ */
 
 .shop-page {
+    width: 100%;
     padding: 40px 30px;
     background: #f6f7f9;
     min-height: 100vh;
@@ -22,6 +23,7 @@
 .shop-layout {
     gap: 25px;
     overflow: visible;   /* 🔴 MOST IMPORTANT */
+    display: flex;
 }
 
 /* ===============================
@@ -29,120 +31,170 @@
 ================================ */
 /* ================= FILTER BAR ================= */
 
+/* MAIN SIDEBAR */
 .shop-filter-top {
-    position: sticky;
-    top: 50px; /* navbar height */
-    z-index: 998;
+     position: sticky;
+    top: 80px;
+    width: 270px;
 
-    display: flex;
-    align-items: center;
-    gap: 18px;
-
-    padding: 14px 18px;
-    margin-bottom: 20px;
-
+    padding: 20px;
     background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    border-radius: 16px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
 
-/* ---------- Categories ---------- */
-
-.filter-title {
+/* HEADING */
+.filter-heading {
+    font-size: 20px;
     font-weight: 600;
-    margin-right: 8px;
-    white-space: nowrap;
+    margin-bottom: 10px;
 }
 
-.filter-categories {
-    display: flex;
-    align-items: center;
-    overflow-x: auto;
-    flex: 1;
+/* BOX SECTION */
+.filter-box {
+    margin-bottom: 25px;
 }
 
-.filter-categories ul {
-    display: flex;
-    gap: 10px;
+.filter-box h4 {
+    font-size: 15px;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+/* CATEGORY LIST */
+.filter-box ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.filter-categories li a {
-    padding: 7px 14px;
-    border-radius: 20px;
-    background: #f2f2f2;
-    color: #333;
-    font-size: 14px;
-    white-space: nowrap;
+.filter-box ul li {
+    margin-bottom: 8px;
+}
+
+/* CATEGORY BUTTON STYLE */
+.filter-box ul li a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: #f8f8f8;
+    color: #444;
     text-decoration: none;
+    font-size: 14px;
     transition: all 0.25s ease;
 }
 
-.filter-categories li a:hover,
-.filter-categories li a.active {
-    background: #ff6a00;
-    color: #fff;
+/* HOVER + ACTIVE */
+.filter-box ul li a:hover {
+    background: #ffe5d3;
+    color: #ff6a00;
 }
 
-/* ---------- Price Filter ---------- */
+.filter-box ul li a.active {
+    background: linear-gradient(135deg, #ff6a00, #ff8c42);
+    color: #fff;
+    font-weight: 500;
+}
 
+/* PRICE INPUT */
 .filter-price {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .filter-price input {
-    width: 90px;
-    padding: 8px;
-    border-radius: 6px;
+    padding: 10px;
+    border-radius: 8px;
     border: 1px solid #ddd;
+    font-size: 14px;
+    transition: 0.2s;
 }
 
-.filter-price .dash {
-    font-weight: 600;
+.filter-price input:focus {
+    border-color: #ff6a00;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255,106,0,0.1);
 }
 
+/* BUTTON */
 .filter-price button {
-    padding: 8px 14px;
-    background: #ff6a00;
-    color: #fff;
+    padding: 12px;
+    border-radius: 8px;
     border: none;
-    border-radius: 6px;
+    background: linear-gradient(135deg, #ff6a00, #ff8c42);
+    color: white;
+    font-weight: 500;
     cursor: pointer;
+    transition: 0.3s;
 }
 
+.filter-price button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(255,106,0,0.3);
+}
+
+/* SCROLLBAR */
+.shop-filter-top::-webkit-scrollbar {
+    width: 5px;
+}
+.shop-filter-top::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 10px;
+}
 /* ================= MOBILE ================= */
 
 @media (max-width: 768px) {
 
     .shop-filter-top {
-        top: 50px; /* mobile navbar height */
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
+        position: sticky;
+        top: 60px; /* navbar height */
+        width: 100%;
+        border-radius: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px 15px;
+        z-index: 999;
+        gap: 20px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     }
 
-    .filter-categories {
-        overflow-x: auto;
-        padding-bottom: 6px;
+    /* Hide full category list */
+    .filter-box ul {
+        display: none;
     }
 
+    /* Make compact layout */
+    .filter-box {
+        margin: 0;
+        display: flex;
+    }
+    .filter-box h4{
+        display: none;
+    }
+    
+
+    /* Show only headings as buttons */
+    .filter-box h4 {
+        background: #f5f5f5;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 13px;
+        cursor: pointer;
+    }
+
+    /* Price inputs hide */
+    #priceFilter{
+        display: flex;
+    }
     .filter-price {
-        width: 100%;
-    }
-
-    .filter-price input {
-        width: 100%;
-        flex: 1;
-    }
-
-    .filter-price button {
-        width: 100%;
+        display: flex;
+        flex-direction: row;
     }
 }
+
 
 /* ===============================
    PRODUCTS GRID
