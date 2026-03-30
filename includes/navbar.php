@@ -20,7 +20,7 @@ $categoryIcons = [
 
             <!-- ================= TOP BAR ================= -->
             <div class="top-bar">
-            <div class="container-fluid">
+            <div class="container-fluid" class="top-container-fluid">
                 
                  <!-- LEFT SIDE -->
             <div class="top-left">
@@ -81,9 +81,9 @@ $categoryIcons = [
 
             <!-- ===== ALL DEPARTMENTS ===== -->
             <div class="all-departments">
-                <i class="fa-solid fa-bars"></i> EXPLORE PRODUCTS
-
-                <div class="departments-dropdown">
+                <i class="fa-solid fa-bars"></i> 
+                        <span class="menu-text">EXPLORE PRODUCTS</span>                
+                        <div class="departments-dropdown">
                     <?php
                     $mainCats = mysqli_query($conn, "
                         SELECT * FROM categories 
