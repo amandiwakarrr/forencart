@@ -61,6 +61,10 @@ $userEmail = isset($_SESSION['user_email'])
                 <a href="settings.php">Edit Profile →</a>
             </div>
 
+            <div class="card">
+                <a href="<?php echo $base_url; ?>auth/logout.php" class="logout">Logout</a>
+            </div>
+
         </div>
 
     </section>

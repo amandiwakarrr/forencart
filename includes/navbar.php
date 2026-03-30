@@ -17,9 +17,8 @@ $categoryIcons = [
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <header class="main-header">
-
-            <!-- ================= TOP BAR ================= -->
-            <div class="top-bar">
+        <!-- ================= TOP BAR ================= -->
+        <div class="top-bar">
             <div class="container-fluid" class="top-container-fluid">
                 
                  <!-- LEFT SIDE -->
@@ -27,7 +26,7 @@ $categoryIcons = [
                 <?php if (isset($_SESSION['user_id'])) { ?>
                     Welcome, <strong><?php echo htmlspecialchars($_SESSION['user_name']); ?></strong>
                 <?php } else { ?>
-                    Default welcome msg!
+                    <!-- Default welcome msg! -->
                     <a href="<?php echo $base_url; ?>auth/register.php">Register</a>
                     or
                     <a href="<?php echo $base_url; ?>auth/login.php">Login</a>
@@ -59,7 +58,6 @@ $categoryIcons = [
                 </button>
             </form>
 
-
             <div class="contact-info">
                 <div class="icon-circle">
                     <i class="fa-solid fa-headphones"></i>
@@ -72,8 +70,24 @@ $categoryIcons = [
                 </div>
             </div>
 
+            <!-- 🔥 Icons (hidden initially) -->
+            <div class="middle-icons">
+                <a href="<?php echo $base_url; ?>pages/wishlist.php">
+                    <i class="fa-regular fa-heart"></i>
+                </a>
+                <a href="<?php echo $base_url; ?>pages/account.php">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+                <a href="<?php echo $base_url; ?>pages/cart.php" class="cart-icon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="count"><?php echo cartCount(); ?></span>
+                </a>
+            </div>
+
         </div>
     </div>
+    <!-- ✅ Spacer MUST be separate -->
+    <div class="middle-spacer"></div>
 
     <!-- ================= NAV BAR ================= -->
     <nav class="bottom-nav">
