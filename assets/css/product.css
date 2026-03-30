@@ -169,12 +169,13 @@
 }
 
 .btn-cart {
-    background: linear-gradient(135deg, #ff6a00, #ff8c42);
+    background: var(--primary-color);
     padding: 10px 20px;
     border-radius: 20px;
     text-decoration: none;
     color: #111;
     font-weight: 500;
+    border: none;
 }
 
 /* .btn-cart:hover {

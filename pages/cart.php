@@ -15,83 +15,105 @@ $cart = $_SESSION['cart'] ?? [];
     <p>Your cart is empty.</p>
 <?php } else { ?>
 
-<table class="cart-table">
-<tr>
-    <th>Product</th>
-    <th>Price</th>
-    <th>Qty</th>
-    <th>Total</th>
-    <th>Remove</th>
-</tr>
+<div class="cart-container">
 
-<?php
-$grandTotal = 0;
+    <!-- LEFT SIDE: CART ITEMS -->
+    <div class="cart-items">
 
-foreach ($cart as $pid => $qty) {
+    <?php
+    $grandTotal = 0;
 
-    $res = mysqli_query($conn, "
-    SELECT p.name, p.price, p.image, o.type, o.value
-    FROM products p
-    LEFT JOIN offer_products op ON p.id = op.product_id
-    LEFT JOIN offers o ON op.offer_id = o.id
-        AND o.status = 1
-        AND NOW() BETWEEN o.start_date AND o.end_date
-    WHERE p.id = $pid
-    ");
+    foreach ($cart as $pid => $qty) {
 
-    if ($p = mysqli_fetch_assoc($res)) {
+        $res = mysqli_query($conn, "
+        SELECT p.name, p.price, p.image, o.type, o.value
+        FROM products p
+        LEFT JOIN offer_products op ON p.id = op.product_id
+        LEFT JOIN offers o ON op.offer_id = o.id
+            AND o.status = 1
+            AND NOW() BETWEEN o.start_date AND o.end_date
+        WHERE p.id = $pid
+        ");
 
-        // Apply offer logic
-        $price = $p['price'];
+        if ($p = mysqli_fetch_assoc($res)) {
 
-        if (!empty($p['type'])) {
-            if ($p['type'] == 'percentage') {
-                $price = $price - ($price * $p['value'] / 100);
-            } else {
-                $price = $price - $p['value'];
+            // Apply offer logic
+            $price = $p['price'];
+
+            if (!empty($p['type'])) {
+                if ($p['type'] == 'percentage') {
+                    $price = $price - ($price * $p['value'] / 100);
+                } else {
+                    $price = $price - $p['value'];
+                }
             }
-        }
 
-        $total = $price * $qty;
-        $grandTotal += $total;
-?>
-<tr>
-    <td><?php echo htmlspecialchars($p['name']); ?></td>
+            $total = $price * $qty;
+            $grandTotal += $total;
+    ?>
 
-    <td>
-        ₹<?php echo number_format($price, 2); ?>
-        <?php if (!empty($p['type'])) { ?>
-            <br>
-            <small style="text-decoration: line-through; color: gray;">
-                ₹<?php echo number_format($p['price'], 2); ?>
-            </small>
-        <?php } ?>
-    </td>
+    <div class="cart-item">
 
-    <td><?php echo $qty; ?></td>
+        <!-- IMAGE -->
+        <div class="cart-img">
+            <img src="<?php echo $base_url; ?>assets/images/products/<?php echo $p['image']; ?>">
+        </div>
 
-    <td>₹<?php echo number_format($total, 2); ?></td>
+        <!-- DETAILS -->
+        <div class="cart-details">
+            <h3><?php echo htmlspecialchars($p['name']); ?></h3>
 
-    <td>
-        <a href="remove-from-cart.php?id=<?php echo $pid; ?>">❌</a>
-    </td>
-</tr>
-<?php }} ?>
+            <p class="cart-price">
+                ₹<?php echo number_format($price, 2); ?>
+            </p>
 
-<tr>
-    <td colspan="3"><strong>Grand Total</strong></td>
-    <td colspan="2"><strong>₹<?php echo number_format($grandTotal, 2); ?></strong></td>
-</tr>
+            <?php if (!empty($p['type'])) { ?>
+                <p class="old-price">
+                    ₹<?php echo number_format($p['price'], 2); ?>
+                </p>
+            <?php } ?>
+        </div>
 
-</table>
+        <!-- QUANTITY -->
+        <div class="cart-qty">
+            <button>-</button>
+            <input type="number" value="<?php echo $qty; ?>">
+            <button>+</button>
+        </div>
 
-<?php if (!empty($cart)) { ?>
+        <!-- TOTAL -->
+        <div class="cart-total">
+            ₹<?php echo number_format($total, 2); ?>
+        </div>
+
+        <!-- REMOVE -->
+        <div class="cart-remove">
+            <a href="remove-from-cart.php?id=<?php echo $pid; ?>">❌</a>
+        </div>
+
+    </div>
+
+    <?php }} ?>
+
+    </div> <!-- cart-items -->
+
+
+    <!-- RIGHT SIDE: TOTAL -->
     <div class="cart-actions">
+
+        <h3>Cart Total</h3>
+
+        <p class="grand-total">
+            ₹<?php echo number_format($grandTotal, 2); ?>
+        </p>
+
         <a href="<?php echo $base_url; ?>pages/checkout.php" class="checkout-btn">
             Proceed to Checkout
         </a>
+
     </div>
-<?php } ?>
+
+</div> <!-- cart-container -->
 
 <?php } ?>
 
