@@ -64,7 +64,7 @@ body {
 
 .auth-error {
     background: #ffe5e5;
-    color: #c0392b;
+    color: #06f52e;
     padding: 10px;
     border-radius: 6px;
     margin-bottom: 12px;
@@ -103,7 +103,7 @@ form input:focus {
 form button {
     width: 100%;
     padding: 12px;
-    background-color: orange;
+    background-color: #f35d06;
     border: none;
     color: white;
     font-size: 16px;
@@ -113,7 +113,7 @@ form button {
 }
 
 form button:hover {
-    background-color: #e69500;
+    background-color: rgba(230, 150, 0, 0.918);
 }
 
 /* Message */
@@ -129,7 +129,7 @@ a {
     text-align: center;
     margin-top: 10px;
     text-decoration: none;
-    color: orange;
+    color: rgb(255, 94, 0);
     font-weight: bold;
 }
 
