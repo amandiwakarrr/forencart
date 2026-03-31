@@ -23,15 +23,20 @@ include_once '../includes/navbar.php';
         </div>
 
         <!-- Contact Form -->
-        <form class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
+        <form id="contactForm" class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit" id="submitBtn">
+                    Send Message
+                </button>
         </form>
 
-    </div>
+        <!-- Toast -->
+        <div id="toast"></div>
 
+    </div>
+<script src="<?php echo $base_url; ?>assets/js/contact.js"></script>
 </main>
 
 <?php include_once '../includes/footer.php'; ?>
