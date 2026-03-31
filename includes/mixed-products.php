@@ -36,7 +36,10 @@ $products = mysqli_query($conn, "
                         <div class="product-info">
                             <h4><?php echo htmlspecialchars($product['name']); ?></h4>
                             <p class="price">₹<?php echo number_format($product['price'], 2); ?></p>
+                            <a href="<?php echo $base_url; ?>pages/product.php?id=<?php echo $product['id']; ?>" class="btn">View Product</a>
                         </div>
+
+                        
 
                     </div>
 

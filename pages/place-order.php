@@ -1,8 +1,10 @@
 <?php
 include '../includes/header.php';
 
+
+// First check is user login or not before place order if user not login then redirect them into the login page otherwise continue the process
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+    header("Location: ../auth/login.php");
     exit;
 }
 
