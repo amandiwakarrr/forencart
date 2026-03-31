@@ -1,4 +1,31 @@
 <?php
+session_start();
+
+$ip = $_SERVER['REMOTE_ADDR'];
+$time = time();
+
+if (!isset($_SESSION['requests'])) {
+    $_SESSION['requests'] = [];
+}
+
+// Remove old requests (older than 60 sec)
+$_SESSION['requests'] = array_filter($_SESSION['requests'], function($t) use ($time) {
+    return ($time - $t) < 60;
+});
+
+// Limit: max 3 requests per minute
+if (count($_SESSION['requests']) >= 3) {
+    echo json_encode([
+        "status" => "error",
+        "message" => "Too many requests. Try again later."
+    ]);
+    exit;
+}
+
+// Add current request
+$_SESSION['requests'][] = $time;
+
+
 header('Content-Type: application/json');
 
 include_once '../includes/db.php';
@@ -45,14 +72,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'amandiwakar8630@gmail.com'; // 🔥 your gmail
-        $mail->Password   = 'your_app_password';   // 🔥 app password
+        $mail->Username   = 'amandiwakarfghp@gmail.com'; // 🔥 your gmail
+        $mail->Password   = 'pftmwagwmcqxgrmc';   // 🔥 app password
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
 
         // Sender & Receiver
         $mail->setFrom($email, $name);
-        $mail->addAddress('yourgmail@gmail.com'); // receive mail
+        $mail->addAddress('amandiwakarfghp@gmail.com'); // receive mail
 
         // Content
         $mail->isHTML(true);

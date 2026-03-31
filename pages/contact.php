@@ -30,6 +30,7 @@ include_once '../includes/navbar.php';
                 <button type="submit" id="submitBtn">
                     Send Message
                 </button>
+                <input type="text" name="website" style="display:none">
         </form>
 
         <!-- Toast -->
