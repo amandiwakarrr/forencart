@@ -26,13 +26,12 @@ $categories = mysqli_query(
     <?php } ?>
 
     <div class="shop-layout">
-
-        <!-- 🔹 STICKY TOP FILTER BAR -->
+        <!-- Products filter usign ajax without reloading page -->
         <div class="shop-filter-top">
 
-            <h3 class="filter-heading">Filters</h3>
+            <h3>Filters</h3>
 
-            <!-- Categories -->
+            <!-- CATEGORY -->
             <div class="filter-box">
                 <h4>Categories</h4>
                 <ul id="categoryList">
@@ -41,25 +40,22 @@ $categories = mysqli_query(
                     <?php while ($cat = mysqli_fetch_assoc($categories)) { ?>
                         <li>
                             <a href="#" data-category="<?php echo $cat['slug']; ?>">
-                                <?php echo htmlspecialchars($cat['name']); ?>
+                                <?php echo $cat['name']; ?>
                             </a>
                         </li>
                     <?php } ?>
                 </ul>
             </div>
 
-            <!-- Price Filter -->
+            <!-- PRICE -->
             <div class="filter-box">
-                <h4>Price Range</h4>
-                <form id="priceFilter" class="filter-price">
-                    <input type="number" id="minPrice" placeholder="Min ₹">
-                    <input type="number" id="maxPrice" placeholder="Max ₹">
-                    <button type="submit">Apply Filter</button>
-                </form>
+                <h4>Price</h4>
+                <input type="number" id="minPrice" placeholder="Min ₹">
+                <input type="number" id="maxPrice" placeholder="Max ₹">
+                <button id="applyPrice">Apply</button>
             </div>
 
         </div>
-
         <!-- PRODUCTS -->
         <section class="shop-products" id="shopProducts">
             <!-- Products AJAX se load honge -->

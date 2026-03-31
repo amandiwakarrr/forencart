@@ -1,6 +1,6 @@
 <?php
-$base_url = "http://localhost/forencart/";
-include_once '../includes/header.php';
+// $base_url = "http://localhost/forencart/";
+// include_once '../includes/header.php';
 // header.php already starts session + db + base_url
 require_once "../includes/header.php";
 

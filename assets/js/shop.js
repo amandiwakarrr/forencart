@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const productsBox = document.getElementById("shopProducts");
     const categoryLinks = document.querySelectorAll("#categoryList a");
-    const priceForm = document.getElementById("priceFilter");
+    const priceForm = document.getElementById("applyPrice");
 
     let currentCategory = window.SHOP_INITIAL_CATEGORY || "";
     let currentSearch = window.SHOP_INITIAL_SEARCH || "";
@@ -42,13 +42,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     /* PRICE FILTER */
-    priceForm.addEventListener("submit", function (e) {
-        e.preventDefault();
+    document.getElementById("applyPrice").addEventListener("click", function () {
 
-        minPrice = document.getElementById("minPrice").value;
-        maxPrice = document.getElementById("maxPrice").value;
+    minPrice = document.getElementById("minPrice").value;
+    maxPrice = document.getElementById("maxPrice").value;
 
-        loadProducts();
+    console.log("Min:", minPrice, "Max:", maxPrice); // debug
+
+    loadProducts();
     });
 
     /* INITIAL LOAD */
