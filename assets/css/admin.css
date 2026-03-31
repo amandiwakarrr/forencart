@@ -353,6 +353,105 @@
     background: #f35d06;
 }
 
+
+/* CONTAINER */
+.messages-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+/* TITLE */
+.messages-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* TABLE */
+.messages-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+/* HEADER */
+.messages-table thead {
+    background: #111827;
+    color: #ffffff;
+}
+
+.messages-table th {
+    padding: 12px;
+    text-align: left;
+    font-size: 14px;
+}
+
+/* ROWS */
+.messages-table td {
+    padding: 12px;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+}
+
+.messages-table tr:hover {
+    background: #f3f4f6;
+}
+
+/* STATUS BADGES */
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-unread {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.status-read {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.status-replied {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+/* ACTION LINKS */
+.action-link {
+    font-size: 13px;
+    margin-right: 8px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.action-read {
+    color: #2563eb;
+}
+
+.action-reply {
+    color: #16a34a;
+}
+
+.action-delete {
+    color: #dc2626;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .messages-table th,
+    .messages-table td {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
+
 /* =========================
    RESPONSIVE
 ========================= */
