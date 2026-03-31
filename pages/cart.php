@@ -75,10 +75,10 @@ $cart = $_SESSION['cart'] ?? [];
         </div>
 
         <!-- QUANTITY -->
-        <div class="cart-qty">
-            <button>-</button>
-            <input type="number" value="<?php echo $qty; ?>">
-            <button>+</button>
+        <div class="quantity-control cart-mode" data-product-id="<?php echo $pid; ?>">
+            <button type="button" class="qty-btn minus">−</button>
+            <input type="number" class="qty-input" value="<?php echo $qty; ?>" min="1">
+            <button type="button" class="qty-btn plus">+</button>
         </div>
 
         <!-- TOTAL -->
@@ -118,5 +118,5 @@ $cart = $_SESSION['cart'] ?? [];
 <?php } ?>
 
 </main>
-
+<script src="<?php echo $base_url; ?>assets/js/quantity.js"></script>
 <?php include_once '../includes/footer.php'; ?>

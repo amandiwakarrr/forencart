@@ -45,25 +45,38 @@
     color: gray;
     font-size: 13px;
 }
-
-.cart-qty {
-    display: flex;
+* Quantity */
+/* Quantity Control FIXED */
+.quantity-control {
+    display: inline-flex;
     align-items: center;
-    gap: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 15px;
 }
 
-.cart-qty button {
-    width: 28px;
-    height: 28px;
+/* Buttons (+ / -) */
+.qty-btn {
+    background: none;
     border: none;
-    background: #eee;
-    border-radius: 6px;
+    padding: 8px 14px;
     cursor: pointer;
+    font-size: 16px;
 }
 
-.cart-qty input {
-    width: 40px;
+/* Hover */
+.qty-btn:hover {
+    background: #f0f0f0;
+}
+
+/* Input */
+.qty-input {
+    width: 45px;
     text-align: center;
+    border: none;
+    outline: none;
+    font-size: 14px;
 }
 
 .cart-total {

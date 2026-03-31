@@ -136,18 +136,11 @@ $relatedProducts = mysqli_query($conn, "
         <form action="<?php echo $base_url; ?>pages/add-to-cart.php" method="POST">
             <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
 
-            <div class="quantity-control" data-product-id="<?php echo $product['id']; ?>">
-                <button type="button" class="qty-btn minus">−</button>
-                    <input 
-                        type="number" 
-                        name="qty" 
-                        class="qty-input" 
-                        value="1" 
-                        min="1"
-                    >
-                <button type="button" class="qty-btn plus">+</button>
-
-            </div>
+                <div class="quantity-control" data-product-id="<?php echo $product['id']; ?>">
+                    <button type="button" class="qty-btn minus">−</button>
+                    <input type="number" name="qty" class="qty-input" value="1" min="1">
+                    <button type="button" class="qty-btn plus">+</button>
+                </div>
 
             <button type="submit" class="btn-cart">Add to Cart</button>
         </form>
@@ -189,7 +182,7 @@ $relatedProducts = mysqli_query($conn, "
     </div>
 </section>
 <?php } ?>
-
+<script src="<?php echo $base_url; ?>assets/js/quantity.js"></script>
 <script src="<?php echo $base_url; ?>assets/js/product.js"></script>
 <script src="<?php echo $base_url; ?>assets/js/wishlist.js"></script>
 

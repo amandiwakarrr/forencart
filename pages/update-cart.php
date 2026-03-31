@@ -1,14 +1,39 @@
 <?php
-include '../includes/header.php';
+session_start();
+include '../includes/db.php';
 
-if (isset($_POST['qty'])) {
-    foreach ($_POST['qty'] as $id => $qty) {
-        $qty = (int) $qty;
-        if ($qty > 0) {
-            $_SESSION['cart'][$id] = $qty;
-        }
+if (isset($_POST['id']) && isset($_POST['qty'])) {
+
+    $id = (int) $_POST['id'];
+    $qty = (int) $_POST['qty'];
+
+    if ($qty > 0) {
+        $_SESSION['cart'][$id] = $qty;
+    } else {
+        unset($_SESSION['cart'][$id]);
     }
-}
 
-header("Location: cart.php");
-exit;
+    // 🔥 Recalculate totals
+    $grandTotal = 0;
+    $itemTotal = 0;
+
+    foreach ($_SESSION['cart'] as $pid => $q) {
+
+        $res = mysqli_query($conn, "SELECT price FROM products WHERE id = $pid");
+        $p = mysqli_fetch_assoc($res);
+
+        $total = $p['price'] * $q;
+
+        if ($pid == $id) {
+            $itemTotal = $total;
+        }
+
+        $grandTotal += $total;
+    }
+
+    echo json_encode([
+        "itemTotal" => number_format($itemTotal, 2),
+        "grandTotal" => number_format($grandTotal, 2)
+    ]);
+}
+?>
