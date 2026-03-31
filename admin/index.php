@@ -45,74 +45,14 @@ $result = $conn->query("SELECT * FROM contacts ORDER BY created_at DESC LIMIT 10
             <p>Track customer Offers</p>
             <a href="<?php echo $base_url; ?>admin/manage-offers.php">Manage</a>
         </div>
+
         <div class="dash-card">
-            <div class="dash-card">
-                <div class="messages-card">
-
-        <h3 class="messages-title">📩 Recent Messages</h3>
-
-        <table class="messages-table">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Message</th>
-            <th>Status</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        <?php while($row = $result->fetch_assoc()) { ?>
-        <tr>
-            
-            <td><?php echo $row['name']; ?></td>
-            
-            <td><?php echo $row['email']; ?></td>
-            
-            <td><?php echo substr($row['message'],0,40); ?>...</td>
-
-            <td>
-                <span class="status-badge 
-                    <?php 
-                        if($row['status']=='unread') echo 'status-unread';
-                        elseif($row['status']=='read') echo 'status-read';
-                        else echo 'status-replied';
-                    ?>">
-                    <?php echo $row['status']; ?>
-                </span>
-            </td>
-
-            <td>
-                <a class="action-link action-read"
-                href="<?php echo $base_url; ?>admin/mark_read.php?id=<?php echo $row['id']; ?>">
-                Read
-                </a>
-
-                <a class="action-link action-reply"
-                href="<?php echo $base_url; ?>admin/reply.php?id=<?php echo $row['id']; ?>">
-                Reply
-                </a>
-
-                <a class="action-link action-delete"
-                href="<?php echo $base_url; ?>admin/delete_message.php?id=<?php echo $row['id']; ?>">
-                Delete
-                </a>
-            </td>
-
-        </tr>
-<?php } ?>
-</tbody>
-
-</table>
-
-</div>
-            </div>
-
+            <h3>Messages</h3>
+            <p>See the SMS</p>
+            <a href="<?php echo $base_url; ?>admin/messages.php">See</a>
         </div>
-
+        
     </div>
-
 </main>
 
 </div> <!-- admin-wrapper -->
