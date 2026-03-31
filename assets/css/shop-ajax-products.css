@@ -12,11 +12,10 @@
    PRODUCT CARD
 ================================ */
 .product-card {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    min-height: 365px; /* 🔥 fixed height */
 
     padding: 14px;
     border-radius: 12px;
@@ -122,18 +121,117 @@
 /* ===============================
    RESPONSIVE (OPTIONAL)
 ================================ */
-@media (max-width: 768px) {
+/* ===============================
+   MOBILE (425px)
+================================ */
+@media (max-width: 425px) {
+
+    /* 🔥 GRID: 2 PRODUCTS */
     .products-container {
         grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        gap: 10px;
+        padding: 0 8px;
     }
 
+    /* 🔥 CARD */
     .product-card {
-        width: 250px;
-        min-height: 320px;
+        min-height: auto; /* remove fixed height */
+        padding: 10px;
+        border-radius: 8px;
     }
 
+    /* 🔥 IMAGE */
     .product-card img {
-        height: 140px;
+        height: 130px;
+        object-fit: contain;
+    }
+
+    /* 🔥 TITLE */
+    .product-info h4 {
+        font-size: 12px;
+        min-height: 32px; /* keep alignment */
+    }
+
+    /* 🔥 PRICE */
+    .price {
+        font-size: 12px;
+    }
+
+    /* 🔥 BUTTON SECTION */
+    .product-actions {
+        gap: 6px;
+    }
+
+    /* 🔥 WISHLIST BUTTON */
+    .product-actions a:first-child {
+        font-size: 11px;
+        padding: 6px;
+    }
+
+    /* 🔥 VIEW BUTTON */
+    .view-btn {
+        font-size: 12px;
+        padding: 7px;
+    }
+}
+
+/* ===============================
+   EXTRA SMALL MOBILE (320px)
+================================ */
+@media (max-width: 320px) {
+
+    /* 🔥 GRID: FORCE 2 PRODUCTS */
+    .products-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 0 6px;
+    }
+
+    /* 🔥 CARD */
+    .product-card {
+        min-height: auto;
+        padding: 8px;
+        border-radius: 6px;
+    }
+
+    /* 🔥 IMAGE */
+    .product-card img {
+        height: 110px;
+        object-fit: contain;
+    }
+
+    /* 🔥 INFO */
+    .product-info {
+        gap: 4px;
+        margin-top: 6px;
+    }
+
+    /* 🔥 TITLE */
+    .product-info h4 {
+        font-size: 11px;
+        line-height: 1.2;
+        min-height: 28px;
+    }
+
+    /* 🔥 PRICE */
+    .price {
+        font-size: 11px;
+    }
+
+    /* 🔥 BUTTON SECTION */
+    .product-actions {
+        gap: 4px;
+    }
+
+    /* 🔥 WISHLIST */
+    .product-actions a:first-child {
+        font-size: 10px;
+        padding: 5px;
+    }
+
+    /* 🔥 VIEW BUTTON */
+    .view-btn {
+        font-size: 11px;
+        padding: 6px;
     }
 }

@@ -203,16 +203,17 @@
 .shop-products {
     flex: 1;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap:24px;
     align-items: stretch;
 }
-
 /* ===============================
    PRODUCT CARD
 ================================ */
 
 .product-card {
+    width: 100%;
+    margin: 0;
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
@@ -294,8 +295,12 @@
 /* ===============================
    RESPONSIVE
 ================================ */
-
 @media (max-width: 992px) {
+    .shop-products {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 0 10px;
+    }
     .shop-layout {
         flex-direction: column;
     }
@@ -304,48 +309,103 @@
         width: 100%;
     }
 }
-.search-result {
-    margin-bottom: 15px;
-    font-size: 14px;
-    color: #555;
+
+@media (max-width: 600px) {
+    .shop-products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
 }
 
 @media (max-width: 425px) {
 
-    /* Hide everything */
+    /* Hide unnecessary filters */
     .filter-heading {
         display: none;
     }
 
     .filter-box:first-child {
-        display: none; /* Categories */
+        display: none;
     }
 
-    /* Show only price filter */
     .filter-box:last-child {
         display: block;
+        width: 100%;
     }
 
-    /* Make price filter clean */
+    /* Clean layout */
     .filter-price {
         display: flex;
-        gap: 8px;
+        gap: 6px;
+        width: 100%;
     }
 
     .filter-price input {
         flex: 1;
-        height: 35px;
-        width: 70px;
+        height: 34px;
+        min-width: 0;
     }
 
     .filter-price button {
+        height: 34px;
         padding: 0 10px;
+        white-space: nowrap;
     }
 }
 
+/* ===============================
+   320px MOBILE (2 PRODUCTS FIX)
+================================ */
+
 @media (max-width: 320px) {
 
-    /* Stack price inputs */
+    /* 🔥 FORCE 2 PRODUCTS */
+   .shop-products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    /* 🔥 PRODUCT CARD OPTIMIZATION */
+    .product-card {
+        width: 100%;
+        padding: 8px;
+        border-radius: 8px;
+    }
+
+    /* IMAGE */
+    .product-card img {
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+    }
+
+    /* TITLE */
+    .product-card h4 {
+        font-size: 12px;
+        line-height: 1.2;
+        margin: 5px 0;
+    }
+
+    /* PRICE */
+    .product-card .price {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    /* ACTION BUTTONS */
+    .product-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .product-actions a {
+        font-size: 11px;
+        padding: 5px;
+        text-align: center;
+    }
+
+    /* 🔥 FILTER FIX (STACKED) */
     .filter-price {
         flex-direction: column;
         gap: 6px;
@@ -353,7 +413,7 @@
 
     .filter-price input,
     .filter-price button {
-        height: 30px;
         width: 100%;
+        height: 30px;
     }
 }

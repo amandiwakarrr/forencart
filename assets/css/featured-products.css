@@ -107,7 +107,7 @@
     margin-top: auto;
     display: inline-block;
     padding: 8px 16px;
-    background: #111827;
+    background: linear-gradient(135deg, #ff6a00, #ff8c42);
     color: #fff;
     text-decoration: none;
     border-radius: 20px;

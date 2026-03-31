@@ -140,3 +140,175 @@
     background: #dc3545;
     color: #fff;
 }
+
+
+/* ===============================
+   TABLET (768px)
+================================ */
+@media (max-width: 768px) {
+
+    .order-landscape-card {
+        grid-template-columns: 100px 1fr;
+        gap: 15px;
+    }
+
+    /* Move actions below */
+    .order-actions {
+        grid-column: span 2;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .order-image img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .order-info h3 {
+        font-size: 16px;
+    }
+
+    .order-info .meta {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
+
+/* ===============================
+   MOBILE (425px)
+================================ */
+@media (max-width: 425px) {
+
+    .orders-page {
+        padding: 10px;
+    }
+
+    .orders-title {
+        font-size: 22px;
+    }
+
+    .order-landscape-card {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 14px;
+    }
+
+    /* Center image */
+    .order-image {
+        text-align: center;
+    }
+
+    .order-image img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .order-info h3 {
+        font-size: 15px;
+    }
+
+    .order-info .desc {
+        font-size: 13px;
+    }
+
+    .order-info .meta {
+        flex-direction: column;
+        gap: 5px;
+        font-size: 12px;
+    }
+
+    .order-info .total {
+        font-size: 14px;
+    }
+
+    /* Actions full width */
+    .order-actions {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+        font-size: 13px;
+    }
+
+    .status {
+        align-self: flex-start;
+        font-size: 12px;
+    }
+
+    /* Order items */
+    .order-item {
+        grid-template-columns: 50px 1fr;
+        gap: 10px;
+    }
+
+    .order-item img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* ===============================
+   SMALL MOBILE (320px)
+================================ */
+@media (max-width: 320px) {
+
+    .orders-title {
+        font-size: 18px;
+    }
+
+    .order-landscape-card {
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .order-image img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .order-info h3 {
+        font-size: 13px;
+    }
+
+    .order-info .desc {
+        font-size: 12px;
+    }
+
+    .order-info .meta {
+        font-size: 11px;
+    }
+
+    .order-info .total {
+        font-size: 13px;
+    }
+
+    .btn {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .status {
+        font-size: 11px;
+        padding: 5px 10px;
+    }
+
+    /* Order items */
+    .order-item {
+        grid-template-columns: 40px 1fr;
+        gap: 8px;
+    }
+
+    .order-item img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .item-meta {
+        font-size: 12px;
+    }
+}

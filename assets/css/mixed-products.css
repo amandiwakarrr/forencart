@@ -76,7 +76,7 @@
 
 .view-more a {
     padding: 12px 28px;
-    background: #111827;
+    background: linear-gradient(135deg, #ff6a00, #ff8c42);
     color: #fff;
     text-decoration: none;
     border-radius: 30px;
