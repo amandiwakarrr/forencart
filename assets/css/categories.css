@@ -1,3 +1,6 @@
+/* ===============================
+   BASE (DESKTOP)
+================================ */
 .categories-section {
     padding: 60px 20px;
     background: #ffffff;
@@ -12,6 +15,7 @@
     font-size: 32px;
     margin-bottom: 35px;
     text-align: center;
+    font-weight: 600;
 }
 
 /* GRID */
@@ -30,9 +34,11 @@
     padding: 35px 25px;
     position: relative;
     overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: all 0.3s ease;
+    cursor: pointer; /* ✅ added */
 }
 
+/* HOVER EFFECT */
 .category-card::before {
     content: "";
     position: absolute;
@@ -48,9 +54,15 @@
 
 .category-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
 }
 
+/* MOBILE TAP EFFECT */
+.category-card:active {
+    transform: scale(0.97);
+}
+
+/* CONTENT */
 .category-content {
     position: relative;
     z-index: 2;
@@ -67,9 +79,118 @@
     opacity: 0.9;
 }
 
-/* RESPONSIVE */
+
+/* ===============================
+   LAPTOP (<= 1024px)
+================================ */
+@media (max-width: 1024px) {
+    .categories-section {
+        padding: 55px 18px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .categories-grid {
+        gap: 20px;
+    }
+
+    .category-card {
+        padding: 30px 22px;
+    }
+}
+
+
+/* ===============================
+   TABLET (<= 768px)
+================================ */
 @media (max-width: 768px) {
+    .categories-section {
+        padding: 50px 15px;
+    }
+
     .section-title {
         font-size: 26px;
+        margin-bottom: 25px;
+    }
+
+    .categories-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 18px;
+    }
+
+    .category-card {
+        padding: 26px 20px;
+        border-radius: 12px;
+    }
+
+    .category-content h3 {
+        font-size: 20px;
+    }
+
+    .category-content p {
+        font-size: 13px;
+    }
+}
+
+
+/* ===============================
+   MOBILE (<= 425px)
+================================ */
+/* ===============================
+   MOBILE (<= 425px)
+================================ */
+@media (max-width: 425px) {
+    .categories-section {
+        padding: 40px 12px;
+    }
+
+    .section-title {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .categories-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
+    }
+
+    .category-card {
+        padding: 18px 12px;
+        border-radius: 10px;
+    }
+
+    .category-content h3 {
+        font-size: 16px;
+    }
+
+    .category-content p {
+        font-size: 11px;
+    }
+}
+
+/* ===============================
+   SMALL MOBILE (<= 320px)
+================================ */
+/* ===============================
+   SMALL MOBILE (<= 320px)
+================================ */
+@media (max-width: 320px) {
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr); /* always 2 cards */
+        gap: 10px;
+    }
+
+    .category-card {
+        padding: 14px 10px;
+    }
+
+    .category-content h3 {
+        font-size: 14px;
+    }
+
+    .category-content p {
+        font-size: 10px;
     }
 }
