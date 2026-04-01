@@ -175,7 +175,7 @@ $relatedProducts = mysqli_query($conn, "
 
                     <a href="javascript:void(0)"
                         onclick="addToWishlist(<?php echo $product['id']; ?>)"
-                    class="btn-wishlist">Wishlist</a>
+                    class="btn-wishlist"> Wishlist</a>
                 </div>
             </div>
         <?php } ?>

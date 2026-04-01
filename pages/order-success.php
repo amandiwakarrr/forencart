@@ -7,7 +7,7 @@ include '../includes/navbar.php';
     <h1>🎉 Order Placed Successfully</h1>
     <p>Thank you for shopping with ForenCart.</p>
 
-    <a href="shop.php" class="btn">Continue Shopping</a>
+    <a href="shop.php" class="btn" style="margin-top:5px;">Continue Shopping</a>
 </main>
 
 <?php include '../includes/footer.php'; ?>
