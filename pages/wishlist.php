@@ -1,10 +1,13 @@
 <?php
+
+// if (!isset($_SESSION['user_id'])) {
+//     header("Location: ../auth/login.php");
+//     exit;
+// }
+
 require_once '../includes/header.php';
 require_once '../includes/navbar.php'; 
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit;
-}
+
 
 $user_id = $_SESSION['user_id'];
 

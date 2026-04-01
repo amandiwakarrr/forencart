@@ -1,11 +1,15 @@
 <?php
 require_once '../includes/header.php';
-
-// session check
-if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'user') {
+// ONLY check this
+if (!isset($_SESSION['user_id'])) {
     header("Location: ../auth/login.php");
     exit;
 }
+// session check
+// if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'user') {
+//     header("Location: ../auth/login.php");
+//     exit;
+// }
 require_once '../config/config.php';
 require_once '../includes/navbar.php';
 

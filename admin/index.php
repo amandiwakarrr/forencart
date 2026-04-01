@@ -2,15 +2,22 @@
 require_once __DIR__ . "/../config/config.php";
 include "../includes/header.php";
 
+// if (
+//     !isset($_SESSION['user_id']) ||
+//     !isset($_SESSION['user_role']) ||
+//     $_SESSION['user_role'] !== 'admin'
+// ) {
+//     header("Location: " . $base_url . "auth/admin_login.php");
+//     exit;
+// }
 if (
     !isset($_SESSION['user_id']) ||
     !isset($_SESSION['user_role']) ||
     $_SESSION['user_role'] !== 'admin'
 ) {
-    header("Location: " . $base_url . "auth/login.php");
+    header("Location: " . $base_url . "auth/admin_login.php");
     exit;
 }
-
 require_once __DIR__ . "/includes/admin-header.php";
 $result = $conn->query("SELECT * FROM contacts ORDER BY created_at DESC LIMIT 10");
 ?>

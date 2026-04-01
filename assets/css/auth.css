@@ -51,14 +51,18 @@ body {
 .auth-box button:hover {
     background: #d94f04;
 }
-
+.auth-box button{
+    margin: 5px 0;
+}
 .auth-link {
     text-align: center;
     margin-top: 15px;
+    color: #f35d06;
+
 }
 
 .auth-link a {
-    color: #f35d06;
+    /* color: #f35d06; */
     text-decoration: none;
 }
 

@@ -1,64 +1,43 @@
 <?php
-include_once '../includes/header.php';
+include '../includes/header.php';
+include '../includes/db.php';
 
-$error = "";
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    $email = trim($_POST['email']);
-    $pass  = $_POST['password'];
-
-    $stmt = mysqli_prepare(
-        $conn,
-        "SELECT id, name, email, password, role FROM users WHERE email = ?"
-    );
-    mysqli_stmt_bind_param($stmt, "s", $email);
-    mysqli_stmt_execute($stmt);
-    $res = mysqli_stmt_get_result($stmt);
-
-    if ($user = mysqli_fetch_assoc($res)) {
-
-        if (password_verify($pass, $user['password'])) {
-
-            // ✅ Sessions
-            $_SESSION['user_id']    = $user['id'];
-            $_SESSION['user_name']  = $user['name'];
-            $_SESSION['user_email'] = $user['email'];
-            $_SESSION['user_role']  = $user['role'];
-
-            // 🔥 ROLE BASED REDIRECT
-            if ($user['role'] === 'admin') {
-                header("Location: ../admin/index.php");
-            } else {
-                header("Location: ../pages/account.php");
-            }
-            exit;
-        }
-    }
-
-    $error = "Invalid email or password";
+if (isset($_SESSION['user_id'])) {
+    header("Location: ../pages/account.php");
+    exit;
 }
 ?>
 
 <link rel="stylesheet" href="<?php echo $base_url; ?>assets/css/auth.css">
+<form method="POST" action="verify_otp.php">
 
-<div class="auth-page">
-    <div class="auth-box">
-        <h2>Login</h2>
+    <input type="email" name="email" placeholder="Enter Email" required>
 
-        <?php if ($error) { ?>
-            <p class="auth-error"><?php echo $error; ?></p>
-        <?php } ?>
+    <button type="button" onclick="sendOTP()">Send OTP</button>
 
-        <form method="post">
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
+    <input type="text" name="otp" id="otpBox" placeholder="Enter OTP" style="display:none;">
 
-        <p class="auth-link">
-            New user?
-            <a href="register.php">Create account</a>
-        </p>
-    </div>
+    <button type="submit">Login</button>
+
+    <p id="msg"></p>
+
+</form>
+
+<script src="<?php echo $base_url; ?>assets/js/email-auth.js"></script>
+<!-- <div class="auth-box">
+    <h2>Login</h2>
+
+    <input type="email" name="email" placeholder="Enter Email" required>
+
+    <button type="button" onclick="sendOTP()">Send OTP</button>
+
+    <input type="text" name="otp" id="otpBox" placeholder="Enter OTP" style="display:none;">
+
+    <button type="button" onclick="verifyOTP()">Login</button>
+
+    <p id="msg"></p>
+
+    <a href="register.php">Create account</a>
 </div>
+
+<script src="assets/js/email-auth.js"></script> -->
