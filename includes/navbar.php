@@ -72,7 +72,7 @@ $categoryIcons = [
             </div>
 
             <!-- 🔥 Icons (hidden initially) -->
-            <div class="middle-icons">
+            <div class="middle-icons" style="color:balck;">
                 <a href="<?php echo $base_url; ?>pages/wishlist.php">
                     <i class="fa-regular fa-heart"></i>
                 </a>
