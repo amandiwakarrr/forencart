@@ -83,3 +83,141 @@
 .hero-dots .dot.active {
     background: #f35d06;
 }
+
+
+/* ================= HERO RESPONSIVE ================= */
+
+/* ---------- 1200px ---------- */
+@media (max-width: 1200px) {
+    .hero-slider {
+        height: 420px;
+    }
+
+    .slide-content {
+        padding: 60px;
+        max-width: 500px;
+    }
+
+    .slide-content h1 {
+        font-size: 36px;
+    }
+
+    .slide-content p {
+        font-size: 16px;
+    }
+}
+
+/* ---------- 992px ---------- */
+@media (max-width: 992px) {
+    .hero-slider {
+        height: 380px;
+    }
+
+    .slide-content {
+        padding: 50px;
+        max-width: 450px;
+    }
+
+    .slide-content h1 {
+        font-size: 32px;
+    }
+
+    .slide-content p {
+        font-size: 15px;
+    }
+}
+
+/* ---------- 768px ---------- */
+@media (max-width: 768px) {
+    .hero-slider {
+        height: 320px;
+    }
+
+    .slide-content {
+        padding: 40px 30px;
+        max-width: 100%;
+    }
+
+    .slide-content h1 {
+        font-size: 26px;
+    }
+
+    .slide-content p {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
+    .hero-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* ---------- 600px ---------- */
+@media (max-width: 600px) {
+    .hero-slider {
+        height: 280px;
+    }
+
+    .slide-content {
+        padding: 30px 20px;
+    }
+
+    .slide-content h1 {
+        font-size: 22px;
+    }
+
+    .slide-content p {
+        font-size: 13px;
+    }
+}
+
+/* ---------- 425px ---------- */
+@media (max-width: 425px) {
+    .hero-slider {
+        height: 240px;
+    }
+
+    .slide-content {
+        padding: 20px 15px;
+        text-align: center;
+    }
+
+    .slide-content h1 {
+        font-size: 20px;
+    }
+
+    .slide-content p {
+        display: none; /* hide for clean mobile */
+    }
+
+    .hero-btn {
+        padding: 8px 18px;
+        font-size: 13px;
+    }
+
+    .hero-dots .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* ---------- 320px ---------- */
+@media (max-width: 320px) {
+    .hero-slider {
+        height: 200px;
+    }
+
+    .slide-content {
+        padding: 15px 10px;
+    }
+
+    .slide-content h1 {
+        font-size: 18px;
+    }
+
+    .hero-btn {
+        padding: 6px 14px;
+        font-size: 12px;
+    }
+}
