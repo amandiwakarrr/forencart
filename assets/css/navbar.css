@@ -196,6 +196,8 @@
 
 /* ================= BOTTOM NAV ================= */
 .bottom-nav {
+    position: relative;
+    z-index: 1000;
     background: #fff;
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
@@ -217,10 +219,7 @@
     position: relative;
     z-index: 1000;
 }
-.bottom-nav .container-fluid {
-    overflow-x: auto;
-    overflow-y: visible;
-}
+
 
 .all-departments {
     position: relative;
@@ -248,12 +247,12 @@
     box-shadow: 0 6px 18px rgba(0,0,0,0.15);
     z-index: 9999;
     pointer-events: auto;
-
 }
 
 /* Show on hover */
 .all-departments:hover .departments-dropdown {
     display: block;
+    z-index: 9999;
 }
 
 /* Main category item */
@@ -407,20 +406,6 @@
         flex-wrap: wrap;
     }
 
-    .bottom-nav .container-fluid {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        /* -webkit-overflow-scrolling: touch; */
-    }
-
-    .nav-links {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        white-space: nowrap;
-        width: 100%;
-        /* scrollbar-width: none; */
-    }
-
     .nav-links::-webkit-scrollbar {
         display: none;
     }
@@ -436,7 +421,7 @@
 
     .nav-icons {
         flex-shrink: 0;
-        gap: 10px;
+        gap: 5px;
     }
 
     .nav-icons a {
@@ -446,7 +431,7 @@
 
     .all-departments {
         flex-shrink: 0;
-        padding: 0 12px;
+        padding: 0 5px;
         min-width: 150px;
     }
 }
@@ -459,7 +444,7 @@
     }
 
     .bottom-nav .container-fluid {
-        gap: 8px;
+        gap: 2px;
     }
 
     .nav-links {
@@ -470,14 +455,14 @@
 /* ---------- 768px ---------- */
 @media (max-width: 768px) {
 /* Disable hover completely */
-    .all-departments:hover .departments-dropdown {
+    /* .all-departments:hover .departments-dropdown {
         display: none;
-    }
+    } */
 
     /* Default hidden */
-    .departments-dropdown {
+    /* .departments-dropdown {
         display: none;
-    }
+    } */
 
     /* Show when clicked */
     .departments-dropdown.active {
@@ -496,7 +481,8 @@
     }
 
     .nav-links li {
-        padding: 0 6px;
+        /* padding: 0 6px; */
+        display: none;
     }
 
     .nav-links a {
@@ -510,10 +496,7 @@
 
     .all-departments {
         padding: 0 10px;
-    }
-
-    .all-departments .menu-text {
-        display: none;
+        width: 20px;
     }
 
     .middle-bar.is-sticky ~ .bottom-nav .cart-icon .count {
