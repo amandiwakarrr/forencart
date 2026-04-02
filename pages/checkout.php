@@ -1,13 +1,12 @@
 <?php
-include '../includes/header.php';
-include '../includes/navbar.php';
-
 $cart = $_SESSION['cart'] ?? [];
 
 if (empty($cart)) {
     header("Location: cart.php");
     exit;
 }
+include '../includes/header.php';
+include '../includes/navbar.php';
 ?>
 
 <link rel="stylesheet" href="<?php echo $base_url; ?>assets/css/checkout.css">

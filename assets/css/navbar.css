@@ -217,6 +217,10 @@
     position: relative;
     z-index: 1000;
 }
+.bottom-nav .container-fluid {
+    overflow-x: auto;
+    overflow-y: visible;
+}
 
 .all-departments {
     position: relative;
@@ -230,6 +234,7 @@
     font-weight: bold;
     cursor: pointer;
     gap: 10px;
+    /* user-select: none; */
 }
 
 /* Dropdown container */
@@ -241,7 +246,9 @@
     width: 260px;
     background: #fff;
     box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-    z-index: 3000;
+    z-index: 9999;
+    pointer-events: auto;
+
 }
 
 /* Show on hover */
@@ -302,6 +309,7 @@
     background: #f0f0f0;
     color: var(--primary-color) !important;
 }
+
 
 /* ================= NAV LINKS ================= */
 .nav-links {
@@ -461,6 +469,21 @@
 
 /* ---------- 768px ---------- */
 @media (max-width: 768px) {
+/* Disable hover completely */
+    .all-departments:hover .departments-dropdown {
+        display: none;
+    }
+
+    /* Default hidden */
+    .departments-dropdown {
+        display: none;
+    }
+
+    /* Show when clicked */
+    .departments-dropdown.active {
+        display: block;
+    }
+
 
     .container-fluid {
         padding: 0 10px;
@@ -591,4 +614,5 @@
     .bottom-nav {
         display: none;
     }
+
 }

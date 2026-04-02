@@ -10,22 +10,37 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // ================= DEPARTMENTS TOGGLE =================
+    const deptBtn = document.querySelector('.all-departments');
+    const dropdown = document.querySelector('.departments-dropdown');
+
+    if (deptBtn && dropdown) {
+
+        deptBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            dropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!deptBtn.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+    }
+
     // ================= MIDDLE BAR STICKY =================
-    const header = document.querySelector('.main-header'); // 🔥 NEW
+    const header = document.querySelector('.main-header');
     const middleBar = document.querySelector('.middle-bar');
     const spacer = document.querySelector('.middle-spacer');
 
     if (!header || !middleBar) return;
 
-    // 🔥 Trigger AFTER full navbar scrolls
     const stickyPoint = header.offsetHeight;
 
-    // 🔥 Auto set spacer height
     if (spacer) {
         spacer.style.height = middleBar.offsetHeight + "px";
     }
 
-    // Scroll event
     window.addEventListener('scroll', () => {
 
         if (window.scrollY > stickyPoint) {
