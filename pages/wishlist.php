@@ -1,21 +1,22 @@
 <?php
-
-// if (!isset($_SESSION['user_id'])) {
-//     header("Location: ../auth/login.php");
-//     exit;
-// }
+// session_start();
 
 require_once '../includes/header.php';
 require_once '../includes/navbar.php'; 
 
+$user_id = $_SESSION['user_id'] ?? null;
 
-$user_id = $_SESSION['user_id'];
+if ($user_id) {
+    $user_id = intval($user_id);
 
-$items = mysqli_query($conn, "
-    SELECT p.* FROM wishlist w
-    JOIN products p ON w.product_id = p.id
-    WHERE w.user_id = $user_id
-");
+    $items = mysqli_query($conn, "
+        SELECT p.* FROM wishlist w
+        JOIN products p ON w.product_id = p.id
+        WHERE w.user_id = $user_id
+    ");
+} else {
+    $items = null;
+}
 ?>
 
 <link rel="stylesheet" href="<?php echo $base_url; ?>assets/css/wishlist.css">
@@ -24,12 +25,21 @@ $items = mysqli_query($conn, "
 
     <h2>❤️ My Wishlist</h2>
 
-    <?php if (mysqli_num_rows($items) == 0) { ?>
-        <div class="empty-wishlist">
-            <p>Your wishlist is empty 😔</p>
-            <a href="shop.php" class="btn">Continue Shopping</a>
-        </div>
-    <?php } else { ?>
+    <?php if (!$user_id) { ?>
+
+    <div class="empty-wishlist">
+        <p>🔒 Please login to see your wishlist</p>
+        <a href="login.php" class="btn">Login</a>
+    </div>
+
+<?php } elseif ($items && mysqli_num_rows($items) == 0) { ?>
+
+    <div class="empty-wishlist">
+        <p>Your wishlist is empty 😔</p>
+        <a href="shop.php" class="btn">Continue Shopping</a>
+    </div>
+
+<?php } else { ?>
 
     <div class="wishlist-grid">
         <?php while ($p = mysqli_fetch_assoc($items)) { ?>
