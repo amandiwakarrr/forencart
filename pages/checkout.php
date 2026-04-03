@@ -1,11 +1,11 @@
 <?php
+include '../includes/header.php';
 $cart = $_SESSION['cart'] ?? [];
 
 if (empty($cart)) {
     header("Location: cart.php");
     exit;
 }
-include '../includes/header.php';
 include '../includes/navbar.php';
 ?>
 

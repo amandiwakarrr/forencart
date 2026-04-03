@@ -1,7 +1,7 @@
 <?php
 require_once '../includes/header.php';
 
-/* 🔐 Login check — MUST be before any HTML */
+/* 🔐 Login check */
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../auth/login.php");
     exit;
@@ -28,21 +28,16 @@ if (!$orders) {
 <div class="orders-page">
     <h2 class="orders-title">📦 My Orders</h2>
 
-    <!-- Status messages -->
-    <?php if (isset($_GET['msg']) && $_GET['msg'] === 'cancelled') { ?>
-        <p style="color:green;">Order cancelled successfully.</p>
-    <?php } ?>
-
     <?php if (mysqli_num_rows($orders) === 0) { ?>
         <p>No orders found.</p>
     <?php } ?>
 
     <?php while ($order = mysqli_fetch_assoc($orders)) { ?>
 
-        <!-- LANDSCAPE ORDER CARD -->
+        <!-- ORDER CARD -->
         <div class="order-landscape-card">
 
-            <!-- LEFT : Product image preview -->
+            <!-- IMAGE -->
             <div class="order-image">
                 <?php
                 $preview = mysqli_query($conn, "
@@ -57,52 +52,54 @@ if (!$orders) {
                 <img src="<?php echo $base_url; ?>assets/images/products/<?php echo $prev['image'] ?? 'placeholder.png'; ?>">
             </div>
 
-            <!-- CENTER : Order info -->
+            <!-- INFO -->
             <div class="order-info">
                 <h3>Order #<?php echo $order['id']; ?></h3>
 
-                <div class="meta">
-                    <span>📅 <?php echo date('d M Y, h:i A', strtotime($order['created_at'])); ?></span>
-                </div>
+                <p>📅 <?php echo date('d M Y, h:i A', strtotime($order['created_at'])); ?></p>
 
                 <p class="total">
                     Total: ₹<?php echo number_format($order['total'], 2); ?>
                 </p>
+
+                <!-- ORDER STATUS -->
+                <p>
+                    Status:
+                    <strong class="status <?php echo $order['status']; ?>">
+                        <?php echo ucfirst($order['status']); ?>
+                    </strong>
+                </p>
             </div>
 
-            <!-- RIGHT : Status + Actions -->
+            <!-- ACTION -->
             <div class="order-actions">
-                <span class="status <?php echo strtolower($order['status']); ?>">
-                    <?php echo ucfirst($order['status']); ?>
-                </span>
-
-                <button class="btn view toggle-items"
-                        data-order="<?php echo $order['id']; ?>">
-                    View Items ⌄
-                </button>
-
                 <a href="<?php echo $base_url; ?>pages/invoice.php?order_id=<?php echo $order['id']; ?>"
                    class="btn invoice" target="_blank">
-                   Download Invoice
+                   Invoice
                 </a>
+                <?php if ($order['status'] == 'pending' || $order['status'] == 'confirmed' || $order['status'] == 'active') { ?>
 
-                <?php if ($order['status'] === 'pending') { ?>
-                    <a href="<?php echo $base_url; ?>pages/cancel-order.php?order_id=<?php echo $order['id']; ?>"
-                       class="btn cancel"
-                       onclick="return confirm('Are you sure you want to cancel this order?');">
-                       Cancel Order
-                    </a>
+                    <form action="cancel-order.php" method="POST"
+                        onsubmit="return confirm('Cancel this order?')">
+
+                        <input type="hidden" name="order_id" value="<?php echo $order['id']; ?>">
+
+                        <button type="submit" class="cancel-btn">
+                            Cancel Order
+                        </button>
+
+                    </form>
+
                 <?php } ?>
-
             </div>
         </div>
 
-        <!-- 🔽 EXPANDABLE ITEMS -->
-        <div class="order-items" id="items-<?php echo $order['id']; ?>">
+        <!-- ITEMS (ALWAYS VISIBLE) -->
+        <div class="order-items">
 
             <?php
             $items = mysqli_query($conn, "
-                SELECT p.name, p.image, oi.quantity, oi.price
+                SELECT oi.id, oi.status, p.name, p.image, oi.quantity, oi.price
                 FROM order_items oi
                 JOIN products p ON p.id = oi.product_id
                 WHERE oi.order_id = {$order['id']}
@@ -111,18 +108,55 @@ if (!$orders) {
 
             <?php while ($it = mysqli_fetch_assoc($items)) { ?>
                 <div class="order-item">
+
                     <img src="<?php echo $base_url; ?>assets/images/products/<?php echo $it['image']; ?>">
 
                     <div>
                         <p class="item-name"><?php echo htmlspecialchars($it['name']); ?></p>
-                        <p class="item-meta">
+
+                        <p>
                             Qty: <?php echo $it['quantity']; ?> × ₹<?php echo number_format($it['price'], 2); ?>
                         </p>
+
+                        <!-- ITEM STATUS -->
+                        <p>
+                            Status:
+                            <?php if ($it['status'] == 'active') { ?>
+                                <span style="color:blue;">Active</span>
+                            <?php } elseif ($it['status'] == 'cancelled') { ?>
+                                <span style="color:red;">Cancelled</span>
+                            <?php } else { ?>
+                                <span style="color:orange;">Pending</span>
+                            <?php } ?>
+                        </p>
+
+                        <!-- CANCEL BUTTON -->
+                        <?php if ($it['status'] == 'active') { ?>
+
+                            <form action="request-cancel.php" method="POST">
+
+                                <input type="hidden" name="order_item_id" value="<?php echo $it['id']; ?>">
+
+                                <select name="reason" required>
+                                    <option value="">Cancel Reason</option>
+                                    <option value="Ordered by mistake">Ordered by mistake</option>
+                                    <option value="Found cheaper">Found cheaper</option>
+                                    <option value="Delivery delay">Delivery delay</option>
+                                    <option value="Other">Other</option>
+                                </select>
+
+                                <button type="submit">Cancel Item</button>
+
+                            </form>
+
+                        <?php } ?>
+
                     </div>
 
                     <strong>
                         ₹<?php echo number_format($it['quantity'] * $it['price'], 2); ?>
                     </strong>
+
                 </div>
             <?php } ?>
 
@@ -130,7 +164,5 @@ if (!$orders) {
 
     <?php } ?>
 </div>
-
-<script src="<?php echo $base_url; ?>assets/js/orders.js"></script>
 
 <?php include '../includes/footer.php'; ?>
