@@ -420,6 +420,7 @@
     }
 
     .nav-icons {
+        width: 100px;
         flex-shrink: 0;
         gap: 5px;
     }

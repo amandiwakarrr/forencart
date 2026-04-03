@@ -29,7 +29,7 @@ if ($user_id) {
 
     <div class="empty-wishlist">
         <p>🔒 Please login to see your wishlist</p>
-        <a href="login.php" class="btn">Login</a>
+        <a href="<?php echo $base_url; ?>auth/login.php" class="btn">Login</a>
     </div>
 
 <?php } elseif ($items && mysqli_num_rows($items) == 0) { ?>

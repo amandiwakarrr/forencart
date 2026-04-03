@@ -301,9 +301,9 @@
         gap: 20px;
         padding: 0 10px;
     }
-    .shop-layout {
+    /* .shop-layout {
         flex-direction: column;
-    }
+    } */
 
     .shop-sidebar {
         width: 100%;
