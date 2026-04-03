@@ -46,6 +46,52 @@ $items = mysqli_query($conn, "
         <?php } ?>
     </table>
 
+            <p><strong>Status:</strong> 
+            <span style="font-weight:bold;">
+                <?php echo ucfirst($order['status']); ?>
+            </span>
+        </p>
+
+        <!-- ✅ ADMIN ACTION BUTTONS -->
+        <div style="margin: 15px 0;">
+
+        <?php if ($order['status'] == 'pending') { ?>
+
+            <a href="update-order.php?id=<?php echo $order['id']; ?>&action=confirm"
+            style="background:green;color:white;padding:8px 12px;text-decoration:none;">
+            Approve Order
+            </a>
+
+        <?php } ?>
+
+        <?php if ($order['status'] == 'confirmed') { ?>
+
+            <a href="update-order.php?id=<?php echo $order['id']; ?>&action=ship"
+            style="background:blue;color:white;padding:8px 12px;text-decoration:none;">
+            Mark as Shipped
+            </a>
+
+        <?php } ?>
+
+        <?php if ($order['status'] == 'shipped') { ?>
+
+            <a href="update-order.php?id=<?php echo $order['id']; ?>&action=deliver"
+            style="background:black;color:white;padding:8px 12px;text-decoration:none;">
+            Mark as Delivered
+            </a>
+
+        <?php } ?>
+
+        <?php if ($order['status'] == 'cancelled') { ?>
+
+            <span style="color:red;font-weight:bold;">
+                Order Cancelled
+            </span>
+
+        <?php } ?>
+
+        </div>
+
 </main>
 
 </body>
