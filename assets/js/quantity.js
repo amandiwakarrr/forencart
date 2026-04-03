@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // ➕ Increase
         plus.addEventListener("click", () => {
-            let qty = parseInt(input.value) || 1;
+            let qty = parseInt(input.value) || 0;
             qty++;
             input.value = qty;
 
@@ -19,25 +19,61 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // ➖ Decrease
+        // ➖ Decrease (ALLOW 0)
         minus.addEventListener("click", () => {
-            let qty = parseInt(input.value) || 1;
+            let qty = parseInt(input.value) || 0;
 
-            if (qty > 1) {
-                qty--;
-                input.value = qty;
+            qty--; // allow 0
+            if (qty < 0) qty = 0;
 
-                if (isCart) {
-                    updateCart(productId, qty, container);
-                }
+            input.value = qty;
+
+            if (isCart) {
+                updateCart(productId, qty, container);
+            }
+        });
+
+        // 🔄 Manual input change
+        input.addEventListener("change", () => {
+            let qty = parseInt(input.value) || 0;
+
+            if (qty < 0) qty = 0;
+            input.value = qty;
+
+            if (isCart) {
+                updateCart(productId, qty, container);
             }
         });
 
     });
 
-    // 🔥 AJAX update
+    // 🔥 AJAX update function
     function updateCart(id, qty, container) {
 
+        // ✅ If quantity is 0 → remove item
+        if (qty <= 0) {
+
+            fetch("remove-from-cart.php?id=" + id)
+            .then(() => {
+
+                // Remove item from UI
+                const cartItem = container.closest(".cart-item");
+                cartItem.remove();
+
+                // 🔥 Update grand total manually (better UX)
+                updateGrandTotal();
+
+                // 🔥 If cart becomes empty
+                if (document.querySelectorAll(".cart-item").length === 0) {
+                    document.querySelector(".cart-container").innerHTML = "<p>Your cart is empty.</p>";
+                }
+
+            });
+
+            return;
+        }
+
+        // ✅ Otherwise update quantity
         fetch("update-cart.php", {
             method: "POST",
             headers: {
@@ -48,14 +84,27 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(res => res.json())
         .then(data => {
 
-            // ✅ Update item total dynamically
+            // Update item total
             const itemTotal = container.closest(".cart-item").querySelector(".cart-total");
             itemTotal.innerText = "₹" + data.itemTotal;
 
-            // ✅ Update grand total
+            // Update grand total
             document.querySelector(".grand-total").innerText = "₹" + data.grandTotal;
 
         });
+    }
+
+    // 🔥 Recalculate total from UI (no reload needed)
+    function updateGrandTotal() {
+
+        let total = 0;
+
+        document.querySelectorAll(".cart-total").forEach(item => {
+            let value = item.innerText.replace("₹", "").replace(",", "").trim();
+            total += parseFloat(value) || 0;
+        });
+
+        document.querySelector(".grand-total").innerText = "₹" + total.toFixed(2);
     }
 
 });

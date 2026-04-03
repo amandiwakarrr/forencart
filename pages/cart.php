@@ -77,7 +77,7 @@ $cart = $_SESSION['cart'] ?? [];
         <!-- QUANTITY -->
         <div class="quantity-control cart-mode" data-product-id="<?php echo $pid; ?>">
             <button type="button" class="qty-btn minus">−</button>
-            <input type="number" class="qty-input" value="<?php echo $qty; ?>" min="1">
+            <input type="number" class="qty-input" value="<?php echo $qty; ?>" min="0">
             <button type="button" class="qty-btn plus">+</button>
         </div>
 

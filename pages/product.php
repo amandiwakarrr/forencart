@@ -138,7 +138,7 @@ $relatedProducts = mysqli_query($conn, "
 
                 <div class="quantity-control" data-product-id="<?php echo $product['id']; ?>">
                     <button type="button" class="qty-btn minus">−</button>
-                    <input type="number" name="qty" class="qty-input" value="1" min="1">
+                    <input type="number" name="qty" class="qty-input" value="0" min="0">
                     <button type="button" class="qty-btn plus">+</button>
                 </div>
 
