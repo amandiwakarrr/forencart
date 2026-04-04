@@ -28,10 +28,11 @@
 /* CARD */
 .category-card {
     text-decoration: none;
-    background: linear-gradient(135deg, #111827, #1f2937);
-    color: #fff;
+    background: #fff0f0;
+    border: 1px solid #ffd6d6;
+    color: black;
     border-radius: 14px;
-    padding: 35px 25px;
+    padding: 10px 10px;
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;

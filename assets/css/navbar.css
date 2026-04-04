@@ -70,6 +70,10 @@
 .middle-icons i{
     color: black;
 }
+.middle-icons i:hover{
+    transition: 0.3s;
+    color: #f35d06;
+}
 
 /* When sticky */
 .middle-bar.is-sticky .contact-info {
@@ -172,7 +176,6 @@
     margin-right: 12px;
     line-height: 1;
 }
-
 .contact-text {
     display: inline-block;
     vertical-align: top;
@@ -343,6 +346,10 @@
     padding-right: 40px;
 }
 
+.nav-icons i:hover{
+    transition: 0.3s;
+    color: #f35d06;
+}
 .nav-icons a {
     margin-left: 20px;
     color: #333;
@@ -367,6 +374,12 @@
     top: 0;
     right: 0;
     transform: translate(50%, -50%);
+}
+
+.nav-icons i:hover .cart-icon .count{
+    background:#fff;
+    color: #f35d06;
+    transition: 0.3s;
 }
 /* ================= IMPROVED RESPONSIVE ================= */
 

@@ -142,8 +142,9 @@
     display: block;
     text-align: center;
     padding: 9px;
-    background: linear-gradient(135deg, #ff6a00, #ff8c42);
-    color: #fff;
+    background: #fff0f0;
+    border: 1px solid #ffd6d6;
+    color: black;
     border-radius: 6px;
     text-decoration: none;
     font-size: 14px;
@@ -152,6 +153,7 @@
 
 .view-btn:hover {
     box-shadow: 0 6px 15px rgba(255,106,0,0.3);
+    color: #fff;
 }
 
 

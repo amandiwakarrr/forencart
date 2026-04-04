@@ -169,13 +169,22 @@
 }
 
 .btn-cart {
-    background: linear-gradient(135deg, #ff6a00, #ff8c42);    padding: 10px 20px;
+    background: #fff0f0;
     border-radius: 20px;
     text-decoration: none;
     color: #111;
     font-weight: 500;
     border: none;
     cursor: pointer;
+    transition: 0.3s;
+    padding: 10px;
+    border: 2px solid #ffd6d6;
+}
+.btn-cart:hover{
+    background: #f35d06;
+    box-shadow: 0 6px 15px rgba(255,106,0,0.3);
+    color: #fff;
+    transition: 0.3s;
 }
 
 /* .btn-cart:hover {
@@ -184,8 +193,8 @@
 
 /* Wishlist Button */
 .btn-wishlist {
-    background: linear-gradient(135deg, #ff4d6d, #ff758f);
-    color: #fff;
+    background: #fff0f0;
+    color: #e60023;
     border: none;
     padding: 10px 22px;
     border-radius: 25px;
@@ -196,8 +205,13 @@
     align-items: center;
     gap: 6px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: 0.3s ;
     margin-bottom: 12px;
+    border: 1px solid #ffd6d6;
+}
+.btn-wishlist:hover{
+    background: #e60023;
+    color: #fff;
 }
 
 /* Hover Effect */

@@ -112,16 +112,20 @@
     margin-top: auto;
     display: inline-block;
     padding: 8px 16px;
-    background: linear-gradient(135deg, #ff6a00, #ff8c42);
-    color: #fff;
+    background: #fff0f0;
+    color: black;
     text-decoration: none;
+    border: 1px solid #ffd6d6;
     border-radius: 20px;
     font-size: 14px;
-    transition: background 0.2s ease;
-}
+    transform: 2s;
+    }
 
 .btn:hover {
     background: #f35d06;
+    box-shadow: 0 6px 15px rgba(255,106,0,0.3);
+    color: #fff;
+    transition: 0.3s;
 }
 
 /* ===============================
