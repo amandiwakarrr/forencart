@@ -1,5 +1,4 @@
 <?php
-include '../includes/header.php';
 include '../includes/db.php';
 
 $msg = "";
@@ -34,11 +33,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         );
 
         mysqli_stmt_bind_param($stmt,"ssss",$name,$email,$pass,$mobile);
-        mysqli_stmt_execute($stmt);
+        // mysqli_stmt_execute($stmt);
 
-        $msg = "✅ Account created successfully";
+        // $msg = "✅ Account created successfully";
+        if (mysqli_stmt_execute($stmt)) {
+
+            $_SESSION['success_msg'] = "Account created successfully. Please login.";
+
+            header("Location: login.php");
+            exit();
+
+        } else {
+            $msg = "❌ Something went wrong";
+        }
     }
 }
+include '../includes/header.php';
 ?>
 
 <link rel="stylesheet" href="<?php echo $base_url; ?>assets/css/auth.css">

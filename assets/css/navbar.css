@@ -412,7 +412,7 @@
 
     .nav-links li {
         flex: 0 0 auto;
-        padding: 0 8px;
+        padding: 0 4px;
     }
 
     .nav-links a {

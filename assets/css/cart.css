@@ -1,6 +1,7 @@
 .cart-container {
     display: flex;
     gap: 20px;
+    /* min-height: 70vh; */
 }
 
 .cart-items {
@@ -18,6 +19,7 @@
     border: 1px solid #eee;
     border-radius: 10px;
     background: #fff;
+    min-height: 70vh;
 }
 
 .cart-img img {
