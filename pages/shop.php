@@ -50,7 +50,7 @@ $categories = mysqli_query(
             <!-- PRICE -->
             <div class="filter-box">
                 <h4>Price</h4>
-                <input type="number" id="minPrice" placeholder="Min ₹">
+                <input style="margin:0px 4px 0px 0px;" type="number" id="minPrice" placeholder="Min ₹">
                 <input type="number" id="maxPrice" placeholder="Max ₹">
                 <button id="applyPrice">Apply</button>
             </div>

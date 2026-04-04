@@ -67,6 +67,9 @@
     gap: 15px;
     font-size: 20px;
 }
+.middle-icons i{
+    color: black;
+}
 
 /* When sticky */
 .middle-bar.is-sticky .contact-info {

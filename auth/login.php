@@ -11,6 +11,7 @@ if (isset($_SESSION['user_id'])) {
 <link rel="stylesheet" href="<?php echo $base_url; ?>assets/css/auth.css">
 <form method="POST" action="verify_otp.php">
 
+    <input type="name" name="name" placeholder="Enter user name" required>
     <input type="email" name="email" placeholder="Enter Email" required>
 
     <button type="button" onclick="sendOTP()">Send OTP</button>
@@ -18,7 +19,7 @@ if (isset($_SESSION['user_id'])) {
     <input type="text" name="otp" id="otpBox" placeholder="Enter OTP" style="display:none;">
 
     <button type="submit">Login</button>
-
+    <a href="<?php echo $base_url; ?>auth/register.php">New user Please Register.</a>
     <p id="msg"></p>
 
 </form>

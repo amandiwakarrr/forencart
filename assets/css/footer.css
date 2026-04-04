@@ -52,3 +52,56 @@
     background: #0f172a;
     font-size: 13px;
 }
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablets (≤1024px) */
+@media (max-width: 1024px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+    .site-footer {
+        padding-top: 40px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer-box {
+        padding: 10px 0;
+    }
+
+    .footer-box ul {
+        padding: 0;
+    }
+
+    .footer-box ul li {
+        margin-bottom: 6px;
+    }
+}
+
+/* Small Mobile (≤480px) */
+@media (max-width: 480px) {
+    .footer-box h3,
+    .footer-box h4 {
+        font-size: 16px;
+    }
+
+    .footer-box p,
+    .footer-box ul li a {
+        font-size: 13px;
+    }
+
+    .footer-bottom {
+        font-size: 12px;
+        padding: 12px 5px;
+    }
+}
