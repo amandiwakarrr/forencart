@@ -472,6 +472,7 @@
 
 
     .container-fluid {
+        gap: 0px ;
         padding: 0 10px;
     }
 
@@ -528,7 +529,9 @@
 
 /* ---------- 425px ---------- */
 @media (max-width: 425px) {
-
+    .all-departments{
+        font-size: 15px;
+    }
     .container-fluid {
         padding: 0 8px;
     }
