@@ -19,7 +19,7 @@
     border: 1px solid #eee;
     border-radius: 10px;
     background: #fff;
-    min-height: 70vh;
+    /* min-height: 70vh; */
 }
 
 .cart-img img {
@@ -102,13 +102,20 @@
 
 .checkout-btn {
     display: block;
-    background: #ff6a00;
-    color: white;
+    background: #fff0f0;
+    border: 1px solid #ffd6d6;
+    color: black;
     text-align: center;
     padding: 12px;
     border-radius: 25px;
     text-decoration: none;
     margin-top: 10px;
+}
+.checkout-btn:hover{
+    background: #f35d06;
+    box-shadow: 0 6px 15px rgba(255,106,0,0.3);
+    color: #fff;
+    transition: 0.3s;
 }
 
 /* MOBILE */
