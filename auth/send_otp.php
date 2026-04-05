@@ -1,4 +1,5 @@
 <?php
+session_start();
 header('Content-Type: application/json');
 include '../includes/db.php';
 
@@ -10,16 +11,15 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 $email = $_POST['email'] ?? '';
 
-// Validate
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo json_encode(["status"=>"error","msg"=>"Invalid email"]);
+// ✅ STEP 1: Check session (VERY IMPORTANT)
+if (!isset($_SESSION['temp_email']) || $_SESSION['temp_email'] !== $email) {
+    echo json_encode(["status"=>"error","msg"=>"Unauthorized request"]);
     exit;
 }
 
-// Check user exists
-$res = mysqli_query($conn,"SELECT id FROM users WHERE email='$email'");
-if(mysqli_num_rows($res)==0){
-    echo json_encode(["status"=>"error","msg"=>"Email not registered"]);
+// Validate
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo json_encode(["status"=>"error","msg"=>"Invalid email"]);
     exit;
 }
 
@@ -39,6 +39,10 @@ $otp = rand(100000,999999);
 $hash = password_hash($otp, PASSWORD_DEFAULT);
 $expires = date("Y-m-d H:i:s", strtotime("+5 minutes"));
 
+// OPTIONAL: delete old OTPs (clean DB)
+mysqli_query($conn, "DELETE FROM email_otp WHERE email='$email'");
+
+// Insert
 mysqli_query($conn,
 "INSERT INTO email_otp (email,otp,expires_at)
  VALUES('$email','$hash','$expires')");
@@ -60,7 +64,14 @@ try {
 
     $mail->isHTML(true);
     $mail->Subject = 'Your OTP Code';
-    $mail->Body = "<h2>Your OTP is: $otp</h2>";
+    $mail->Body = "
+        <div style='font-family:sans-serif'>
+            <h2>Forencart Login OTP</h2>
+            <p>Your OTP is:</p>
+            <h1 style='letter-spacing:3px;'>$otp</h1>
+            <p>This OTP will expire in 5 minutes.</p>
+        </div>
+    ";
 
     $mail->send();
 

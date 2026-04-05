@@ -9,36 +9,36 @@ if (isset($_SESSION['user_id'])) {
 ?>
 
 <link rel="stylesheet" href="<?php echo $base_url; ?>assets/css/auth.css">
-<form method="POST" action="verify_otp.php">
 
-    <input type="name" name="name" placeholder="Enter user name" required>
-    <input type="email" name="email" placeholder="Enter Email" required>
+<div class="auth-box">
 
-    <button type="button" onclick="sendOTP()">Send OTP</button>
-
-    <input type="text" name="otp" id="otpBox" placeholder="Enter OTP" style="display:none;">
-
-    <button type="submit">Login</button>
-    <a href="<?php echo $base_url; ?>auth/register.php">New user Please Register.</a>
-    <p id="msg"></p>
-
-</form>
-
-<script src="<?php echo $base_url; ?>assets/js/email-auth.js"></script>
-<!-- <div class="auth-box">
     <h2>Login</h2>
 
-    <input type="email" name="email" placeholder="Enter Email" required>
+    <input type="email" id="email" name="email" placeholder="Enter Email" required>
+    <input type="password" id="password" name="password" placeholder="Enter Password" required>
 
-    <button type="button" onclick="sendOTP()">Send OTP</button>
+   <button type="button" id="checkBtn" onclick="checkUser()">Check</button>
 
-    <input type="text" name="otp" id="otpBox" placeholder="Enter OTP" style="display:none;">
+    <button type="button" id="sendOtpBtn" onclick="sendOTP()" style="display:none;">
+        Send OTP
+    </button>
 
-    <button type="button" onclick="verifyOTP()">Login</button>
+    <button type="button" id="loginBtn" onclick="verifyOTP()" style="display:none;">
+        Login
+    </button>
+    <!-- OTP -->
+    <input type="text" id="otpBox" name="otp" placeholder="Enter OTP" style="display:none;">    
+
+    <!-- RESEND -->
+    <p id="resendText" style="display:none;">
+        Resend OTP in <span id="timer">30</span>s
+    </p>
+
+    <!-- LOADER -->
+    <div id="loader" style="display:none;"></div>
 
     <p id="msg"></p>
 
-    <a href="register.php">Create account</a>
 </div>
 
-<script src="assets/js/email-auth.js"></script> -->
+<script src="<?php echo $base_url; ?>assets/js/email-auth.js"></script>

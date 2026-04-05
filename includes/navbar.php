@@ -1,5 +1,4 @@
 <?php
-
 $categoryIcons = [
     'electronics'   => 'fa-laptop',
     'mobiles'       => 'fa-mobile-screen',

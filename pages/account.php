@@ -62,7 +62,7 @@ $userEmail = isset($_SESSION['user_email'])
             <div class="card">
                 <h4>Account Settings</h4>
                 <p>Update your profile</p>
-                <a href="settings.php">Edit Profile →</a>
+                <a href="user-page-settings.php">Edit Profile →</a>
             </div>
 
             <div class="card">
