@@ -13,6 +13,7 @@ include_once 'includes/navbar.php';
         include 'includes/featured-products.php';
         include 'includes/mixed-products.php';
         include 'includes/why-us.php';
+        include 'includes/faq.php';
     ?>
 </main>
 <!-- PAGE-SPECIFIC JS -->
