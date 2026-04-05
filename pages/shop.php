@@ -73,5 +73,5 @@ $categories = mysqli_query(
 
 <!-- SHOP JS -->
 <script src="<?php echo $base_url; ?>assets/js/shop.js"></script>
-
+<?php include '../includes/faq.php'; ?>
 <?php include_once '../includes/footer.php'; ?>

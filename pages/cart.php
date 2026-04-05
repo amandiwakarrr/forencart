@@ -119,4 +119,5 @@ $cart = $_SESSION['cart'] ?? [];
 
 </main>
 <script src="<?php echo $base_url; ?>assets/js/quantity.js"></script>
+<?php include '../includes/faq.php'; ?>
 <?php include_once '../includes/footer.php'; ?>

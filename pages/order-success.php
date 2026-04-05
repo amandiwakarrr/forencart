@@ -9,5 +9,5 @@ include '../includes/navbar.php';
 
     <a href="shop.php" class="btn" style="margin-top:5px;">Continue Shopping</a>
 </main>
-
+<?php include '../includes/faq.php'; ?>
 <?php include '../includes/footer.php'; ?>

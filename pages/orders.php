@@ -164,5 +164,5 @@ if (!$orders) {
 
     <?php } ?>
 </div>
-
+<?php include '../includes/faq.php'; ?>
 <?php include '../includes/footer.php'; ?>

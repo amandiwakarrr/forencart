@@ -73,5 +73,5 @@ if ($user_id) {
 </div>
 
 <script src="<?php echo $base_url; ?>assets/js/wishlist.js"></script>
-
+<?php include '../includes/faq.php'; ?>
 <?php include '../includes/footer.php'; ?>

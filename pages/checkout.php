@@ -59,5 +59,5 @@ include '../includes/navbar.php';
     </form>
 
 </main>
-
+<?php include '../includes/faq.php'; ?>
 <?php include '../includes/footer.php'; ?>

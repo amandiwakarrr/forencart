@@ -74,4 +74,5 @@ $userEmail = isset($_SESSION['user_email'])
     </section>
 </div>
 
+<?php include '../includes/faq.php'; ?>
 <?php include '../includes/footer.php'; ?>

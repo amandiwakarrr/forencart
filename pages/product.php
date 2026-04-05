@@ -187,5 +187,5 @@ $relatedProducts = mysqli_query($conn, "
 <script src="<?php echo $base_url; ?>assets/js/wishlist.js"></script>
 
 </main>
-
+<?php include '../includes/faq.php'; ?>
 <?php include_once '../includes/footer.php'; ?>

@@ -75,5 +75,5 @@ while ($p = mysqli_fetch_assoc($res)) {
 </div>
 
 </main>
-
+<?php include '../includes/faq.php'; ?>
 <?php include_once '../includes/footer.php'; ?>

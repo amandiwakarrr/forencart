@@ -39,5 +39,5 @@ include_once '../includes/navbar.php';
     </div>
 <script src="<?php echo $base_url; ?>assets/js/contact.js"></script>
 </main>
-
+<?php include '../includes/faq.php'; ?>
 <?php include_once '../includes/footer.php'; ?>

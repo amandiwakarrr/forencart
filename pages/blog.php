@@ -45,5 +45,5 @@ include_once '../includes/navbar.php';
     </div>
 
 </main>
-
+<?php include '../includes/faq.php'; ?>
 <?php include_once '../includes/footer.php'; ?>
