@@ -52,7 +52,7 @@ $categories = mysqli_query(
                 <h4>Price</h4>
                 <input style="margin:0px 4px 0px 0px; width:50px;" type="number" id="minPrice" placeholder="Min ₹">
                 <input style="margin:0px 4px 0px 0px; width:50px;" type="number" id="maxPrice" placeholder="Max ₹">
-                <button class="filterPriceButton" style="padding:2px 10px; background: #fff0f0; border: 1px solid #ffd6d6; color: black; border-redius:6px;" id="applyPrice">Apply</button>
+                <button class="filterPriceButton" style="padding:2px 10px; background: #fff0f0; border: 1px solid #ffd6d6; color: black; border-redius:6px; cursor:pointer;" id="applyPrice">Apply</button>
             </div>
 
         </div>

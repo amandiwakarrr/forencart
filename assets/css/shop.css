@@ -129,6 +129,11 @@
     cursor: pointer;
     transition: 0.3s;
 }
+.filter-box .filterPriceButton:hover{
+    color: #fff;
+    background: #f35d06;
+    transition: 0.3s;
+}
 
 /* Remove arrows in Chrome, Safari, Edge */
 input[type=number]::-webkit-inner-spin-button, 
