@@ -3,7 +3,26 @@
     gap: 20px;
     /* min-height: 70vh; */
 }
+/* Center empty cart message */
+.cart-page {
+    min-height: 20vh; /* full screen height feel */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; vertical center */
+    /* align-items: center;     horizontal center */
+    text-align: center;
+}
 
+/* Optional styling for better UI */
+.cart-page h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.cart-page p {
+    font-size: 1.2rem;
+    color: #777;
+}
 .cart-items {
     flex: 2;
 }
@@ -31,7 +50,6 @@
 .cart-details {
     flex: 2;
 }
-
 .cart-details h3 {
     font-size: 16px;
     margin-bottom: 5px;

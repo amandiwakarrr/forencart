@@ -99,20 +99,20 @@ $categoryIcons = [
                         <span class="menu-text">EXPLORE PRODUCTS</span>                
                         <div class="departments-dropdown">
                     <?php
-                    $mainCats = mysqli_query($conn, "
-                        SELECT * FROM categories 
-                        WHERE parent_id IS NULL AND status = 1
-                        ORDER BY name ASC
-                    ");
-
-                    while ($cat = mysqli_fetch_assoc($mainCats)) {
-
-                        $icon = $categoryIcons[$cat['slug']] ?? 'fa-folder';
-
-                        $subCats = mysqli_query($conn, "
+                        $mainCats = mysqli_query($conn, "
                             SELECT * FROM categories 
-                            WHERE parent_id = {$cat['id']} AND status = 1
+                            WHERE parent_id IS NULL AND status = 1
+                            ORDER BY name ASC
                         ");
+
+                        while ($cat = mysqli_fetch_assoc($mainCats)) {
+
+                            $icon = $categoryIcons[$cat['slug']] ?? 'fa-folder';
+
+                            $subCats = mysqli_query($conn, "
+                                SELECT * FROM categories 
+                                WHERE parent_id = {$cat['id']} AND status = 1"
+                        );
                     ?>
                         <div class="dept-item">
 

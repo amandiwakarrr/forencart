@@ -6,11 +6,13 @@
 
 .page-title {
     font-size: 32px;
+    margin-left: 20px;
     margin-bottom: 10px;
 }
 
 .page-subtitle {
     color: #666;
+    margin-left: 20px;
     margin-bottom: 30px;
 }
 
@@ -24,7 +26,7 @@
     background: #fff;
     padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+    /* box-shadow: 0 6px 15px rgba(250, 103, 35, 0.719); */
 }
 
 .contact-info h3 {
@@ -35,7 +37,7 @@
     background: #fff;
     padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+    box-shadow: 0 6px 15px rgba(252, 93, 20, 0.788);
 }
 
 .contact-form input,
@@ -55,12 +57,17 @@
 .contact-form button {
     padding: 12px;
     width: 100%;
-    background: #f35d06;
-    color: #fff;
+    background: #f8f8f8;
+    color: #444;
     border: none;
     border-radius: 25px;
     font-size: 15px;
     cursor: pointer;
+    transition: 0.3s;
+}
+.contact-form button:hover{
+    background: #f17807;
+    color: #ffffff;
 }
 
 

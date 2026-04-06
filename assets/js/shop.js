@@ -10,7 +10,16 @@ document.addEventListener("DOMContentLoaded", function () {
     let maxPrice = "";
 
     function loadProducts() {
-        productsBox.innerHTML = "<p>Loading products...</p>";
+        productsBox.innerHTML = `<div style="
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:10vh;
+        width:100%;
+        text-align:center;
+    ">
+        <p style="margin:0;">Loading products...</p>
+    </div>`;
 
         const formData = new FormData();
         formData.append("category", currentCategory);

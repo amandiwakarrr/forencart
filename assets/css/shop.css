@@ -134,7 +134,10 @@
     transform: translateY(-1px);
     box-shadow: 0 6px 15px rgba(255,106,0,0.3);
 }
-
+.filter-box #applyPrice:hover{
+    background: #f35d06;
+    transition: 0.3s;
+}
 /* SCROLLBAR */
 .shop-filter-top::-webkit-scrollbar {
     width: 5px;

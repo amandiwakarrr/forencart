@@ -8,12 +8,11 @@ $cart = $_SESSION['cart'] ?? [];
 <link rel="stylesheet" href="<?php echo $base_url; ?>assets/css/cart.css">
 
 <main class="cart-page">
-
-<h1>Your Cart</h1>
-
-<?php if (empty($cart)) { ?>
-    <p>Your cart is empty.</p>
-<?php } else { ?>
+    <h1 style="">Your Cart</h1>
+    
+    <?php if (empty($cart)) { ?>
+    <p style="" >Your cart is empty.</p>
+    <?php } else { ?>
 
 <div class="cart-container">
 

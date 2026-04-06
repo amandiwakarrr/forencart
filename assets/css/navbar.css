@@ -471,17 +471,17 @@
 
 /* ---------- 768px ---------- */
 @media (max-width: 768px) {
-/* Disable hover completely */
-    /* .all-departments:hover .departments-dropdown {
-        display: none;
-    } */
-
-    /* Default hidden */
-    /* .departments-dropdown {
-        display: none;
-    } */
 
     /* Show when clicked */
+    .all-departments{
+        min-width: 40px;
+        height: 35px;
+
+    }
+    .all-departments .menu-text{
+        display: none;
+    }
+    
     .departments-dropdown.active {
         display: block;
     }

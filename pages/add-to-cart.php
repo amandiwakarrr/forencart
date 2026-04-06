@@ -33,5 +33,5 @@ if (isset($_SESSION['cart'][$product_id])) {
 }
 
 // Redirect to cart page
-header("Location: cart.php");
+header("Location: " . $_SERVER['HTTP_REFERER']);
 exit;

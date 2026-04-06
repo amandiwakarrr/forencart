@@ -396,8 +396,8 @@
 .related-card a {
     text-decoration: none;
     color: inherit;
-
     display: flex;
+    align-items: center;
     flex-direction: column;
     height: 100%;
 }

@@ -75,6 +75,12 @@
     margin-bottom: 10px;
 }
 
+.category-content:hover {
+    color: #fff;
+}
+.categories-card:hover h3{
+    color: #fff;
+}
 .category-card:hover h1{
     color: #fff;
 }
