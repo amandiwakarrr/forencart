@@ -16,6 +16,7 @@ if (isset($_SESSION['user_id'])) {
 
     <input type="email" id="email" name="email" placeholder="Enter Email" required>
     <input type="password" id="password" name="password" placeholder="Enter Password" required>
+    <a href="forgot-password.php">Forgot Password?</a>
 
    <button type="button" id="checkBtn" onclick="checkUser()">Check</button>
 
@@ -33,6 +34,7 @@ if (isset($_SESSION['user_id'])) {
     <p id="resendText" style="display:none;">
         Resend OTP in <span id="timer">30</span>s
     </p>
+
 
     <!-- LOADER -->
     <div id="loader" style="display:none;"></div>

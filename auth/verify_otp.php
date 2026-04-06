@@ -6,7 +6,7 @@ include '../includes/db.php';
 $email = $_POST['email'] ?? '';
 $otp   = $_POST['otp'] ?? '';
 
-// ✅ SESSION CHECK (IMPORTANT)
+// ✅ SESSION CHECK
 if (!isset($_SESSION['temp_email']) || $_SESSION['temp_email'] !== $email) {
     echo json_encode(["status"=>"error","msg"=>"Unauthorized"]);
     exit;
@@ -44,15 +44,48 @@ if(!$u = mysqli_fetch_assoc($user)){
     exit;
 }
 
-// ✅ SUCCESS LOGIN
-$_SESSION['user_id'] = $u['id'];
-$_SESSION['user_name'] = $u['name'];
+// 🔥 CHECK PURPOSE (IMPORTANT)
+$purpose = $_SESSION['otp_purpose'] ?? 'login';
 
-// 🔥 DELETE OTP AFTER USE (VERY IMPORTANT)
-mysqli_query($conn, "DELETE FROM email_otp WHERE email='$email'");
+if ($purpose === "login") {
 
-// OPTIONAL: clear temp session
-unset($_SESSION['temp_email']);
+    // ✅ LOGIN FLOW
+    $_SESSION['user_id'] = $u['id'];
+    $_SESSION['user_name'] = $u['name'];
 
-// ✅ JSON RESPONSE (for JS)
-echo json_encode(["status"=>"success","msg"=>"Login successful"]);
+    // delete OTP
+    mysqli_query($conn, "DELETE FROM email_otp WHERE email='$email'");
+
+    // clear session
+    unset($_SESSION['temp_email']);
+    unset($_SESSION['otp_purpose']);
+
+    echo json_encode([
+        "status" => "success",
+        "msg" => "Login successful",
+        "redirect" => "../index.php"
+    ]);
+    exit;
+}
+
+if ($purpose === "reset") {
+
+    // ✅ FORGOT PASSWORD FLOW
+    $_SESSION['otp_verified'] = true;
+
+    // delete OTP
+    mysqli_query($conn, "DELETE FROM email_otp WHERE email='$email'");
+
+    // ❗ DO NOT unset temp_email (needed for reset-password.php)
+    unset($_SESSION['otp_purpose']);
+
+    echo json_encode([
+        "status" => "success",
+        "msg" => "OTP verified",
+        "redirect" => "reset-password.php"
+    ]);
+    exit;
+}
+
+// fallback
+echo json_encode(["status"=>"error","msg"=>"Invalid request"]);
