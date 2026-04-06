@@ -362,8 +362,9 @@
 
 .cart-icon .count {
     position: absolute;
-    background: var(--primary-color);
+    /* background: var(--primary-color); */
     color: #fff;
+    background: #333;
     font-size: 10px;
     width: 18px;
     height: 18px;
@@ -376,11 +377,15 @@
     transform: translate(50%, -50%);
 }
 
-.nav-icons i:hover .cart-icon .count{
+
+.cart-icon:hover span{
     background:#fff;
-    color: #f35d06;
+    color: #ffffff;
     transition: 0.3s;
+    background:#f35d06;
+    border: 1px solid #f8f5f3;
 }
+
 /* ================= IMPROVED RESPONSIVE ================= */
 
 /* ---------- 1200px ---------- */
