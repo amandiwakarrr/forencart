@@ -37,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+<link rel="stylesheet" href="<?php echo $base_url; ?>assets/css/admin-login.css">
 
 <div class="auth-box">
     <h2>Admin Login</h2>
