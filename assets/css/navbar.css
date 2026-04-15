@@ -64,7 +64,7 @@
 /* Hide icons initially */
 .middle-icons {
     display: none;
-    gap: 15px;
+    gap: 5px;
     font-size: 20px;
 }
 .middle-icons i{
@@ -82,6 +82,7 @@
 
 .middle-bar.is-sticky .middle-icons {
     display: flex;
+    padding-right: 10px;
 }
 
 .contact-info,
@@ -148,6 +149,7 @@
     flex: 1;
     border: none;
     outline: none;
+    padding: 0px 10px;
 }
 
 .search-box button {
@@ -400,7 +402,7 @@
 @media (max-width: 1100px) {
 
     .container-fluid {
-        padding: 0 15px;
+        padding: 0px 0px;
         gap: 10px;
     }
 
@@ -417,16 +419,16 @@
     }
 
     .nav-icons {
-        padding-right: 0;
+        padding-right: 0 0;
     }
 }
 
 /* ---------- 1024px (MAIN FIX ZONE) ---------- */
 @media (max-width: 1024px) {
 
-    /* .container-fluid {
-        flex-wrap: wrap;
-    } */
+    .container-fluid {
+        padding: 0px 0px;
+    }
 
     .nav-links::-webkit-scrollbar {
         display: none;
@@ -444,7 +446,7 @@
     .nav-icons {
         width: 100px;
         flex-shrink: 0;
-        gap: 5px;
+        gap: 0px;
     }
 
     .nav-icons a {
@@ -463,7 +465,7 @@
 @media (max-width: 900px) {
 
     .container-fluid {
-        padding: 0 10px;
+        padding: 0px 0px;
     }
 
     .bottom-nav .container-fluid {
@@ -495,7 +497,7 @@
 
     .container-fluid {
         gap: 0px ;
-        padding: 0 10px;
+        padding: 0px 0px;
     }
 
     .search-box {
@@ -541,7 +543,7 @@
     }
 
     .search-box {
-        width: 200px;
+        width: 230px;
         height: 38px;
     }
 
@@ -557,11 +559,22 @@
         gap: 5px;
     }
 
+    .middle-icons a #wishlist{
+        display: none;
+    }
+    
+    .middle-icons a #cart{
+        display: none;
+    }
+    
+    .middle-icons a .count{
+        display: none;
+    }
     .all-departments{
         font-size: 20px;
     }
     .container-fluid {
-        padding: 0 8px;
+        padding: 0px 0px;
     }
 
     .nav-links {

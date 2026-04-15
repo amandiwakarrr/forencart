@@ -73,13 +73,13 @@ $categoryIcons = [
             <!-- 🔥 Icons (hidden initially) -->
             <div class="middle-icons" style="color:balck;">
                 <a href="<?php echo $base_url; ?>pages/wishlist.php">
-                    <i class="fa-regular fa-heart"></i>
+                    <i class="fa-regular fa-heart" id="wishlist"></i>
                 </a>
                 <a href="<?php echo $base_url; ?>pages/account.php">
-                    <i class="fa-solid fa-user"></i>
+                    <i class="fa-solid fa-user" id="user"></i>
                 </a>
                 <a href="<?php echo $base_url; ?>pages/cart.php" class="cart-icon">
-                    <i class="fa-solid fa-cart-shopping"></i>
+                    <i class="fa-solid fa-cart-shopping" id="cart"></i>
                     <span class="count"><?php echo cartCount(); ?></span>
                 </a>
             </div>
