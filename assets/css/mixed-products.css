@@ -99,3 +99,9 @@
         height: 120px;
     }
 }
+
+@media (max-width: 375px){
+    .product-card{
+        width: 200px;
+    }
+}

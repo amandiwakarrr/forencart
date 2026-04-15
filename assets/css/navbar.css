@@ -585,7 +585,7 @@
         display: none;
     }
     .search-box{
-        width: 200px;
+        width: 240px;
     }
     .search-box input {
         padding: 0 10px;
@@ -593,7 +593,7 @@
     }
 
     .search-box button {
-        padding: 0 10px;
+        padding: 0 9px;
     }
 
     .nav-icons {
