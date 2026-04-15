@@ -185,6 +185,7 @@
     }
 
     .product-card {
+        height: 320px;
         padding: 10px;
         border-radius: 8px;
     }
