@@ -576,6 +576,12 @@
     .container-fluid {
         padding: 0px 0px;
     }
+    .container-fluid .logo{
+        margin-left: 5px;
+    }
+    .container-fluid .search-box{
+        margin-right: 5px;
+    }
 
     .nav-links {
         display: none;
