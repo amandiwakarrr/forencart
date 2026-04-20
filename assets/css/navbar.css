@@ -619,6 +619,7 @@
         z-index: 9999;
         background: #fff; /* important so it doesn't look transparent */
         box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        padding: 0px 5px;
     }
     body{
         padding-top: 60px;
@@ -626,6 +627,10 @@
     .middle-bar{
         display: none;
     }
+    .departments-dropdown.active {
+        top: 45px;
+    }
+   
 }
 /* ---------- 320px ---------- */
 @media (max-width: 320px) {
