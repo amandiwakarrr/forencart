@@ -1,27 +1,27 @@
 <?php
 $categoryIcons = [
-    'electronics'   => 'fa-laptop',
-    'mobiles'       => 'fa-mobile-screen',
-    'laptops'       => 'fa-laptop-code',
-    'fashion'       => 'fa-shirt',
-    'men'           => 'fa-user-tie',
-    'women'         => 'fa-person-dress',
-    'home-kitchen'  => 'fa-kitchen-set',
-    'books'         => 'fa-book',
-    'beauty'        => 'fa-spa',
-    'sports'        => 'fa-table-tennis',
-    'toys'          => 'fa-puzzle-piece',
-    'jewellery'     => 'fa-gem'
+    'electronics' => 'fa-laptop',
+    'mobiles' => 'fa-mobile-screen',
+    'laptops' => 'fa-laptop-code',
+    'fashion' => 'fa-shirt',
+    'men' => 'fa-user-tie',
+    'women' => 'fa-person-dress',
+    'home-kitchen' => 'fa-kitchen-set',
+    'books' => 'fa-book',
+    'beauty' => 'fa-spa',
+    'sports' => 'fa-table-tennis',
+    'toys' => 'fa-puzzle-piece',
+    'jewellery' => 'fa-gem'
 ];
 ?>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <header class="main-header">
-        <!-- ================= TOP BAR ================= -->
-        <div class="top-bar">
-            <div class="container-fluid" class="top-container-fluid">
-                
-                 <!-- LEFT SIDE -->
+    <!-- ================= TOP BAR ================= -->
+    <div class="top-bar">
+        <div class="container-fluid" class="top-container-fluid">
+
+            <!-- LEFT SIDE -->
             <div class="top-left">
                 <?php if (isset($_SESSION['user_id'])) { ?>
                     Welcome, <strong><?php echo htmlspecialchars($_SESSION['user_name']); ?></strong>
@@ -32,13 +32,13 @@ $categoryIcons = [
                     <a href="<?php echo $base_url; ?>auth/login.php">Login</a>
                 <?php } ?>
             </div>
-                <!-- RIGHT SIDE -->
-                <div class="top-right">
-                    <span>🚚 Free Shipping on Orders Above ₹999 | 🔒 Secure Payments</span>
-                </div>
-
+            <!-- RIGHT SIDE -->
+            <div class="top-right">
+                <span>🚚 Free Shipping on Orders Above ₹999 | 🔒 Secure Payments</span>
             </div>
+
         </div>
+    </div>
 
 
     <!-- ================= MIDDLE BAR ================= -->
@@ -95,25 +95,27 @@ $categoryIcons = [
 
             <!-- ===== ALL DEPARTMENTS ===== -->
             <div class="all-departments">
-                <i class="fa-solid fa-bars"></i> 
-                        <span class="menu-text">EXPLORE PRODUCTS</span>                
-                        <div class="departments-dropdown">
+                <i class="fa-solid fa-bars"></i>
+                <span class="menu-text">EXPLORE PRODUCTS</span>
+                <div class="departments-dropdown">
                     <?php
-                        $mainCats = mysqli_query($conn, "
+                    $mainCats = mysqli_query($conn, "
                             SELECT * FROM categories 
                             WHERE parent_id IS NULL AND status = 1
                             ORDER BY name ASC
                         ");
 
-                        while ($cat = mysqli_fetch_assoc($mainCats)) {
+                    while ($cat = mysqli_fetch_assoc($mainCats)) {
 
-                            $icon = $categoryIcons[$cat['slug']] ?? 'fa-folder';
+                        $icon = $categoryIcons[$cat['slug']] ?? 'fa-folder';
 
-                            $subCats = mysqli_query($conn, "
+                        $subCats = mysqli_query(
+                            $conn,
+                            "
                                 SELECT * FROM categories 
                                 WHERE parent_id = {$cat['id']} AND status = 1"
                         );
-                    ?>
+                        ?>
                         <div class="dept-item">
 
                             <a href="<?php echo $base_url; ?>pages/shop.php?category=<?php echo $cat['slug']; ?>">
@@ -150,13 +152,13 @@ $categoryIcons = [
             <!-- ===== ICONS ===== -->
             <div class="nav-icons">
                 <a href="<?php echo $base_url; ?>pages/wishlist.php">
-                    <i class="fa-regular fa-heart"></i>
+                    <i class="fa-regular fa-heart" id="wl"></i>
                 </a>
                 <a href="<?php echo $base_url; ?>pages/account.php">
                     <i class="fa-solid fa-user"></i>
                 </a>
                 <a href="<?php echo $base_url; ?>pages/cart.php" class="cart-icon">
-                    <i class="fa-solid fa-cart-shopping"></i>
+                    <i class="fa-solid fa-cart-shopping" id="ci"></i>
                     <span class="count">
                         <?php echo cartCount(); ?>
                     </span>
